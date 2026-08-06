@@ -1,0 +1,71 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>interaction tests</title></head><body>
+<pre id="results">pending</pre><iframe id="fr" style="width:1280px;height:800px;border:0"></iframe>
+<script>
+const log=[];
+function load(src){return new Promise(r=>{const f=document.getElementById('fr');f.src=src;f.onload=()=>setTimeout(()=>r(f.contentDocument),1200)})}
+function assert(name,cond,detail){log.push((cond?'PASS':'FAIL')+' — '+name+(detail?'  ['+detail+']':''))}
+window.onerror=function(m,src,l){document.getElementById('results').textContent='JS ERROR: '+m+' @'+l};
+setTimeout(()=>{const el=document.getElementById('results');if(el.textContent==='pending')el.textContent='TIMEOUT after '+log.length+' checks\n'+log.join('\n')},20000);
+(async()=>{try{
+ // ---- get-involved: routed form
+ let d=await load('/get-involved.html');
+ let form=d.querySelector('[data-route-form]'), sel=d.querySelector('[data-route-select]'), out=d.querySelector('[data-route-target]');
+ assert('form: default hint names first division inbox', out.textContent.includes(sel.options[0].getAttribute('data-email')), out.textContent.trim());
+ sel.selectedIndex=3; sel.dispatchEvent(new Event('change'));
+ assert('form: hint follows selection', out.textContent.includes(sel.options[3].getAttribute('data-email')), out.textContent.trim());
+ assert('form: every option carries a routing address', Array.from(sel.options).every(o=>/@digitaltrustfutures\.org$/.test(o.getAttribute('data-email')||'')));
+ // mobile menu
+ let mt=d.querySelector('[data-menu-toggle]'); mt.click();
+ assert('mobile menu: opens and locks scroll', mt.getAttribute('aria-expanded')==='true' && d.body.classList.contains('nav-open'));
+ mt.click();
+ assert('mobile menu: closes', mt.getAttribute('aria-expanded')==='false' && !d.body.classList.contains('nav-open'));
+ // nav dropdown keyboard
+ let item=d.querySelector('[data-nav-item]'), trig=item.querySelector('[data-nav-trigger]');
+ trig.focus(); trig.dispatchEvent(new KeyboardEvent('keydown',{key:'ArrowDown',bubbles:true}));
+ assert('nav: ArrowDown opens panel', item.classList.contains('is-open') && trig.getAttribute('aria-expanded')==='true');
+ await new Promise(r=>setTimeout(r,120));
+ assert('nav: focus moves into panel', !!d.activeElement.closest('[data-nav-panel]'), d.activeElement.textContent.trim().slice(0,30));
+ d.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}));
+ assert('nav: Escape closes and restores focus', !item.classList.contains('is-open') && d.activeElement===trig);
+
+ // ---- research: filters
+ d=await load('/research.html');
+ const total=d.querySelectorAll('.res-item').length;
+ assert('filters: all shown initially', d.querySelectorAll('.res-item:not(.is-hidden)').length===total, total+' items');
+ d.querySelector('[data-filter="opensource"]').click();
+ const os=d.querySelectorAll('.res-item:not(.is-hidden)').length;
+ assert('filters: narrows the list', os>0 && os<total, os+' of '+total);
+ assert('filters: count is announced', d.querySelector('[data-filter-count]').textContent.trim()===os+(os===1?' item':' items'));
+ assert('filters: aria-pressed tracks state', d.querySelector('[data-filter="opensource"]').getAttribute('aria-pressed')==='true' && d.querySelector('[data-filter="all"]').getAttribute('aria-pressed')==='false');
+ d.querySelector('[data-filter="all"]').click();
+ assert('filters: reset restores all', d.querySelectorAll('.res-item:not(.is-hidden)').length===total);
+ // section nav
+ const sn=d.querySelector('[data-section-nav]');
+ assert('section nav: every link has a target', Array.from(sn.querySelectorAll('a')).every(a=>d.getElementById(a.hash.slice(1))));
+
+ // ---- theme
+ d=await load('/index.html');
+ const w=document.getElementById('fr').contentWindow;
+ const start=d.documentElement.getAttribute('data-theme');
+ d.querySelector('[data-theme-toggle]').click();
+ const after=d.documentElement.getAttribute('data-theme');
+ assert('theme: toggle flips the theme', after && after!==start, String(start)+' -> '+after);
+ assert('theme: preference persists', w.localStorage.getItem('dtff-theme')===after);
+ assert('theme: toggle label updates', /Switch to (light|dark) theme/.test(d.querySelector('[data-theme-toggle]').getAttribute('aria-label')));
+ d.querySelector('[data-theme-toggle]').click();
+ assert('theme: toggles back', d.documentElement.getAttribute('data-theme')!==after);
+ // reveal
+ assert('reveal: above-fold content is revealed', d.querySelectorAll('.is-revealed').length>0, d.querySelectorAll('.is-revealed').length+' revealed');
+ // hero canvas
+ const c=d.querySelector('[data-hero-canvas]');
+ assert('hero: canvas is sized and decorative', c.width>0 && c.getAttribute('aria-hidden')==='true', c.width+'x'+c.height);
+ // header stick
+ w.scrollTo(0,400); await new Promise(r=>setTimeout(r,250));
+ assert('header: gains stuck state on scroll', d.getElementById('site-header').classList.contains('is-stuck'));
+ assert('header: progress bar advances', parseFloat(d.querySelector('[data-progress]').style.width)>0, d.querySelector('[data-progress]').style.width);
+
+ const fails=log.filter(l=>l.startsWith('FAIL')).length;
+ document.getElementById('results').textContent = log.join('\n') + '\n\n' + (log.length-fails) + '/' + log.length + ' passed';
+ }catch(e){document.getElementById('results').textContent='THREW: '+e.message+'\n'+log.join('\n')}
+})();
+</script></body></html>

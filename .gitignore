@@ -1,0 +1,25 @@
+# macOS
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Python (the site generator)
+__pycache__/
+*.py[cod]
+
+# Local tooling / scratch
+.claude/settings.local.json
+*.log
+
+# Foundation source documents — kept out of version control because the
+# positioning and strategy document contains the funding model and a named
+# funder prospecting map. Held locally; share deliberately, not by default.
+*.docx
+files.zip
+WhatsApp Image*.jpeg
