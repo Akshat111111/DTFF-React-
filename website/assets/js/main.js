@@ -190,8 +190,9 @@
       if (!select || !out) return;
       var opt = select.options[select.selectedIndex];
       var email = opt ? opt.getAttribute('data-email') : null;
-      if (email) {
-        out.innerHTML = 'This enquiry routes to <a href="mailto:' + email + '">' + email + '</a>.';
+      if (email && opt) {
+        out.innerHTML = 'Sent to <a href="mailto:' + email + '">' + email + '</a> with the subject ' +
+          '<strong>Enquiry \u2014 ' + opt.value + '</strong>, so it reaches the right person.';
       }
     }
     if (select) { select.addEventListener('change', update); update(); }
@@ -199,7 +200,7 @@
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var opt = select ? select.options[select.selectedIndex] : null;
-      var email = (opt && opt.getAttribute('data-email')) || 'hello@digitaltrustfuturesfoundation.org';
+      var email = (opt && opt.getAttribute('data-email')) || 'info@digitaltrustfuturesfoundation.org';
       var data = new FormData(form);
       var lines = [];
       ['name', 'organisation', 'role', 'country', 'email', 'message'].forEach(function (k) {

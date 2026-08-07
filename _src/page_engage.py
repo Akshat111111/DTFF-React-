@@ -158,7 +158,7 @@ def open_source():
           or think a component your country depends on needs review &mdash; there is a route in.</p>
         <div class="mt-7 cluster">
           <a class="btn btn--light" href="get-involved.html#support">Request support{ARROW}</a>
-          <a class="btn btn--outline-light" href="mailto:opensource@digitaltrustfuturesfoundation.org">Email the division{ARROW}</a>
+          <a class="btn btn--outline-light" href="mailto:info@digitaltrustfuturesfoundation.org">Email the division{ARROW}</a>
         </div>
       </div>
       <div data-reveal>
@@ -185,30 +185,30 @@ PATHWAYS = [
      "National identity authorities, central banks and payment regulators, ministries of ICT and digital transformation, data-protection and AI regulators, national cybersecurity agencies, and service-delivery ministries.",
      ["DPI trust readiness assessment", "Safeguards accelerator support", "AI governance review",
       "Incident readiness and resilience support"],
-     "dpi-lab@digitaltrustfuturesfoundation.org", "Government / DPI programme"),
+     "info@digitaltrustfuturesfoundation.org", "Government / DPI programme"),
     ("support", "branch", "Digital public goods and open-source maintainers",
      "Maintainers of identity platforms, data-exchange layers, social protection systems, health registries, payment platforms and consent tooling.",
      ["Security baseline review", "SBOM and supply-chain support", "Vulnerability disclosure process",
       "Sustainability and governance advisory"],
-     "opensource@digitaltrustfuturesfoundation.org", "Digital public good / open source"),
+     "info@digitaltrustfuturesfoundation.org", "Digital public good / open source"),
     ("funders", "chart", "Funders and development partners",
      "Philanthropic foundations, multilateral and bilateral donors, development finance institutions and DPI financing facilities.",
      ["Two-year launch investment package", "Programme-specific funding", "Fellowship and fund sponsorship",
       "Co-designed measurement and reporting"],
-     "partnerships@digitaltrustfuturesfoundation.org", "Funding / partnership"),
+     "info@digitaltrustfuturesfoundation.org", "Funding / partnership"),
     ("helpdesk", "buoy", "Civil-society organisations",
      "Nonprofits, community institutions and social-impact technology providers that cannot afford commercial cybersecurity services.",
      ["Cyber helpdesk", "Digital safety clinic", "Cyber maturity support",
       "Community safety toolkits and training"],
-     "helpdesk@digitaltrustfuturesfoundation.org", "Civil society support request"),
+     "info@digitaltrustfuturesfoundation.org", "Civil society support request"),
     ("careers", "cap", "Researchers, fellows and practitioners",
      "Researchers, university partners, early-career practitioners and specialists who want to work on digital trust in the Global South.",
      ["Research fellowships", "Open-source fellowships", "Graduate programme", "Roles as they open"],
-     "people@digitaltrustfuturesfoundation.org", "Careers / fellowships"),
+     "info@digitaltrustfuturesfoundation.org", "Careers / fellowships"),
 ]
 
 NEXT_STEPS = [
-    ("01", "Acknowledgement", "We confirm receipt and tell you which division is handling the enquiry."),
+    ("01", "Acknowledgement", "We confirm receipt and tell you who is picking the enquiry up."),
     ("02", "Scoping conversation", "A short call to understand the system, the constraint and what would actually help."),
     ("03", "Written scope", "A defined scope, deliverables, timeline, disclosure terms and any partner obligations."),
     ("04", "Agreement", "A written agreement covering roles, confidentiality, publication and safeguarding."),
@@ -225,9 +225,9 @@ def get_involved():
       <h3>{title}</h3>
       <p>{desc}</p>
       <ul class="dot-list">{''.join(f'<li>{o}</li>' for o in offers)}</ul>
-      <div class="pathway-foot"><a class="link-arrow" href="mailto:{email}">{email}{ARROW}</a></div>
+      <div class="pathway-foot"><a class="link-arrow" href="#enquiry">Start an enquiry{ARROW}</a></div>
     </article>"""
-        for pid, ic, title, desc, offers, email, _ in PATHWAYS)
+        for pid, ic, title, desc, offers, email, label in PATHWAYS)
 
     options = "".join(
         f'<option value="{label}" data-email="{email}">{label}</option>'
@@ -240,10 +240,10 @@ def get_involved():
 
     hero = page_hero(
         eyebrow="Get involved",
-        title="Five routes in, each to the team that can actually help",
-        lede="Enquiries are routed to the relevant division rather than into a single general inbox &mdash; because a "
-             "central bank asking about payment fraud and a maintainer asking about SBOMs need different people on the "
-             "other end of the message.",
+        title="Five routes in, one address to send them to",
+        lede="A central bank asking about payment fraud and a maintainer asking about SBOMs need different people on "
+             "the other end of the message. Tell us which of these you are and the enquiry reaches them &mdash; the "
+             "form below writes the subject line for you.",
         crumbs_html=crumbs)
 
     body = f"""{hero}
@@ -258,7 +258,7 @@ def get_involved():
   </div>
 </section>
 
-<section class="section section--alt">
+<section class="section section--alt" id="enquiry">
   <div class="container">
     <div class="split split--even" style="align-items:start">
       <div class="flow" data-reveal>
@@ -268,13 +268,13 @@ def get_involved():
           we are the right organisation &mdash; and if we are not, who might be.</p>
 
         <div class="note mt-6"><strong>How this form works.</strong> The Foundation does not run third-party form
-          processing or analytics on this site. Submitting opens your own email client with the enquiry addressed to
-          the right division. Nothing is transmitted to us until you send that email. If you prefer, write to the
-          address shown below directly.</div>
+          processing or analytics on this site. Submitting opens your own email client with the message drafted and
+          the subject line already set, so it reaches the right person on our side. Nothing is transmitted to us until
+          you press send. If you prefer, write to the address below directly.</div>
 
         <div class="mt-6">
           <p class="mono-label">Prefer to write directly?</p>
-          <p class="mt-3"><a class="link-arrow" href="mailto:hello@digitaltrustfuturesfoundation.org">hello@digitaltrustfuturesfoundation.org{ARROW}</a></p>
+          <p class="mt-3"><a class="link-arrow" href="mailto:info@digitaltrustfuturesfoundation.org">info@digitaltrustfuturesfoundation.org{ARROW}</a></p>
         </div>
       </div>
 
@@ -358,7 +358,7 @@ def get_involved():
           <li>African Digital Trust Graduate Programme &mdash; Skills and Implementation Academy</li>
         </ul>
         <div class="mt-7 cluster">
-          <a class="btn btn--primary" href="mailto:people@digitaltrustfuturesfoundation.org">Register your interest{ARROW}</a>
+          <a class="btn btn--primary" href="mailto:info@digitaltrustfuturesfoundation.org">Register your interest{ARROW}</a>
           <a class="btn btn--ghost" href="programmes.html#fellowships">Fellowship detail{ARROW}</a>
         </div>
       </div>
@@ -366,6 +366,6 @@ def get_involved():
   </div>
 </section>
 
-{cta_band("", title="If you are not sure which route is yours, start anywhere.", text="We would rather redirect a misrouted enquiry than miss a system that needs looking at.", primary=("Contact the Foundation", "contact.html"), secondary=("Support our work", "support-our-work.html"))}
+{cta_band("", title="If you are not sure which route is yours, start anywhere.", text="One address, and we would rather redirect an enquiry than miss a system that needs looking at.", primary=("Contact the Foundation", "contact.html"), secondary=("Support our work", "support-our-work.html"))}
 """
     return body

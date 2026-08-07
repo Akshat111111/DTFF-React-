@@ -62,12 +62,14 @@ Then open <http://localhost:8000>.
    in draft and say so on the page.
 5. Confirm the registration number and registered address on `contact.html`.
 
-### Contact routing
+### Contact
 
-Enquiries are routed per division rather than into one inbox. These addresses must exist:
+The site uses a single mailbox: **`info@digitaltrustfuturesfoundation.org`**. That is the only
+address that has to exist.
 
-`hello@` · `partnerships@` · `dpi-lab@` · `opensource@` · `research@` · `helpdesk@` ·
-`people@` · `security@` · `privacy@` · `safeguarding@` — all `@digitaltrustfuturesfoundation.org`.
+Enquiry forms and division pages ask senders to name the topic in the subject line — the form on
+`get-involved.html` writes it for them (`Enquiry — Government / DPI programme`, and so on) so a
+single inbox can still be triaged to the right person.
 
 ---
 

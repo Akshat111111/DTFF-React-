@@ -165,11 +165,12 @@ def _org_jsonld(base):
   "address": {{"@type": "PostalAddress", "addressCountry": "ZA"}},
   "areaServed": ["Africa", "Global South"],
   "knowsAbout": ["Digital public infrastructure", "Digital public goods", "Cybersecurity assurance", "AI governance", "Digital identity", "Payment security", "Open-source security"],
-  "contactPoint": [
-    {{"@type": "ContactPoint", "contactType": "general enquiries", "email": "hello@digitaltrustfuturesfoundation.org"}},
-    {{"@type": "ContactPoint", "contactType": "partnerships", "email": "partnerships@digitaltrustfuturesfoundation.org"}},
-    {{"@type": "ContactPoint", "contactType": "security", "email": "security@digitaltrustfuturesfoundation.org"}}
-  ]
+  "contactPoint": {{
+    "@type": "ContactPoint",
+    "contactType": "general enquiries",
+    "email": "info@digitaltrustfuturesfoundation.org",
+    "availableLanguage": ["en", "fr"]
+  }}
 }}
 </script>
 """
@@ -244,9 +245,8 @@ def _footer(base):
         <img class="footer-logo" src="{base}assets/img/logo-full-inverse.png" alt="{ORG}" width="988" height="466" loading="lazy">
         <p class="footer-blurb">An independent, non-profit public-benefit organisation strengthening the safety, security, inclusion and trustworthiness of digital public infrastructure, digital public goods, open-source technology and AI-enabled public services.</p>
         <div class="footer-contact">
-          <div>General enquiries · <a href="mailto:hello@digitaltrustfuturesfoundation.org">hello@digitaltrustfuturesfoundation.org</a></div>
-          <div>Partnerships · <a href="mailto:partnerships@digitaltrustfuturesfoundation.org">partnerships@digitaltrustfuturesfoundation.org</a></div>
-          <div>Security disclosure · <a href="mailto:security@digitaltrustfuturesfoundation.org">security@digitaltrustfuturesfoundation.org</a></div>
+          <div>All enquiries · <a href="mailto:info@digitaltrustfuturesfoundation.org">info@digitaltrustfuturesfoundation.org</a></div>
+          <div>Security disclosures follow the <a href="{base}security.html">disclosure policy</a>.</div>
         </div>
         <p class="mono-label" style="margin-top:1.5rem">{ORG_LEGAL} · South Africa</p>
       </div>

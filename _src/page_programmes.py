@@ -448,7 +448,7 @@ def research():
         <p class="text-muted">The Policy and Evidence Centre welcomes peer reviewers, replication requests, university
           collaborations and fellowship enquiries.</p>
         <div class="cluster mt-6">
-          <a class="btn btn--primary" href="mailto:research@digitaltrustfuturesfoundation.org">research@digitaltrustfuturesfoundation.org{ARROW}</a>
+          <a class="btn btn--primary" href="mailto:info@digitaltrustfuturesfoundation.org">info@digitaltrustfuturesfoundation.org{ARROW}</a>
           <a class="btn btn--ghost" href="divisions/policy-evidence-centre.html">Policy and Evidence Centre{ARROW}</a>
         </div>
       </div>

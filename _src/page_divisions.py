@@ -16,7 +16,7 @@ DIVISIONS = {
                 "cybersecurity advisory, adapting an evidence-based maturity and assurance approach to national DPI "
                 "environments that carry public-trust obligations.",
         audience="Governments and DPI programme teams",
-        contact_email="dpi-lab@digitaltrustfuturesfoundation.org",
+        contact_email="info@digitaltrustfuturesfoundation.org",
         focus_title="Focus areas",
         focus=[
             ("DPI cybersecurity and resilience",
@@ -72,7 +72,7 @@ DIVISIONS = {
                 "capability including secure SDLC, DevSecOps, SAST, SCA, SBOM, infrastructure-as-code, container "
                 "security and software supply-chain assurance.",
         audience="Digital public goods and open-source maintainers",
-        contact_email="opensource@digitaltrustfuturesfoundation.org",
+        contact_email="info@digitaltrustfuturesfoundation.org",
         focus_title="Core responsibilities",
         focus=[
             ("Project creation",
@@ -124,7 +124,7 @@ DIVISIONS = {
                 "regulation, investment and public-interest technology decisions &mdash; grounded in the realities of "
                 "the countries adopting digital public infrastructure fastest.",
         audience="Regulators, policymakers, researchers and funders",
-        contact_email="research@digitaltrustfuturesfoundation.org",
+        contact_email="info@digitaltrustfuturesfoundation.org",
         focus_title="Research focus areas",
         focus=[
             ("DPI governance and safeguards", "How safeguards obligations are defined, allocated and enforced across the institutions that operate national infrastructure."),
@@ -173,7 +173,7 @@ DIVISIONS = {
                 "open-source communities and local technology teams &mdash; aligned with a principle of open standards "
                 "and knowledge transfer that moves partner teams toward long-term independence rather than dependency.",
         audience="Government officials, maintainers, students, regulators and civic-tech developers",
-        contact_email="academy@digitaltrustfuturesfoundation.org",
+        contact_email="info@digitaltrustfuturesfoundation.org",
         focus_title="Target beneficiaries",
         focus=[
             ("Government officials and DPI programme teams", "The people who specify, procure and operate national infrastructure."),
@@ -219,7 +219,7 @@ DIVISIONS = {
                 "and social-impact technology providers that cannot afford commercial cybersecurity services &mdash; "
                 "including those working with high-risk communities.",
         audience="Civil society, community institutions and social-impact technology providers",
-        contact_email="helpdesk@digitaltrustfuturesfoundation.org",
+        contact_email="info@digitaltrustfuturesfoundation.org",
         focus_title="What the Centre provides",
         focus=[
             ("Cyber Helpdesk for Civil Society", "A practical first line of support for organisations without in-house security capability."),
@@ -502,8 +502,8 @@ def division(key):
       <div>
         <p class="eyebrow">Direct enquiry path</p>
         <h2 class="balance" style="font-size:var(--step-3)">Talk to the {d['short']}</h2>
-        <p class="text-muted mt-4">Enquiries from {d['audience'].lower()} are routed directly to this division rather
-          than through a general inbox.</p>
+        <p class="text-muted mt-4">Write to us and mark the subject line
+          <strong>{d['short']}</strong>, so it reaches this division rather than sitting in a general queue.</p>
       </div>
       <div class="cluster">
         <a class="btn btn--accent" href="mailto:{d['contact_email']}">{d['contact_email']}{ARROW}</a>

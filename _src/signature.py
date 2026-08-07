@@ -21,7 +21,7 @@ BASE = "https://digitaltrustfuturesfoundation.org"
 ORG = "Digital Trust Futures Foundation"
 ORG_LEGAL = "Digital Trust Futures Foundation NPC"
 TAGLINE = "Safe infrastructure. Trusted technology. Inclusive digital futures."
-SECURITY_EMAIL = "security@digitaltrustfuturesfoundation.org"
+SECURITY_EMAIL = "info@digitaltrustfuturesfoundation.org"
 
 # Brand palette, sampled from the wordmark
 NAVY = "#133A63"

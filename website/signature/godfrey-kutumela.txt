@@ -18,5 +18,5 @@ Personal Information Act (POPIA); see digitaltrustfuturesfoundation.org/legal/pr
 expressed are those of the sender and do not constitute a certification,
 assurance opinion or endorsement by the Foundation.
 
-Reporting a security issue? Please use security@digitaltrustfuturesfoundation.org rather than replying
+Reporting a security issue? Please use info@digitaltrustfuturesfoundation.org rather than replying
 here - see digitaltrustfuturesfoundation.org/security.html
