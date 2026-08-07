@@ -1292,3 +1292,10 @@ select{appearance:none;
 @media (max-width:560px){
   .btn{white-space:normal;overflow-wrap:anywhere;text-align:center}
 }
+
+/* Long email addresses on the foundation domain are unbreakable tokens wide
+   enough to push a grid track — and the page — past the viewport. Let them
+   wrap wherever they must. */
+a[href^="mailto:"]{overflow-wrap:anywhere}
+.link-arrow{flex-wrap:wrap;overflow-wrap:anywhere;min-width:0}
+.pathway .dot-list li,.pathway p{overflow-wrap:anywhere}

@@ -16,7 +16,7 @@ DIVISIONS = {
                 "cybersecurity advisory, adapting an evidence-based maturity and assurance approach to national DPI "
                 "environments that carry public-trust obligations.",
         audience="Governments and DPI programme teams",
-        contact_email="dpi-lab@digitaltrustfutures.org",
+        contact_email="dpi-lab@digitaltrustfuturesfoundation.org",
         focus_title="Focus areas",
         focus=[
             ("DPI cybersecurity and resilience",
@@ -72,7 +72,7 @@ DIVISIONS = {
                 "capability including secure SDLC, DevSecOps, SAST, SCA, SBOM, infrastructure-as-code, container "
                 "security and software supply-chain assurance.",
         audience="Digital public goods and open-source maintainers",
-        contact_email="opensource@digitaltrustfutures.org",
+        contact_email="opensource@digitaltrustfuturesfoundation.org",
         focus_title="Core responsibilities",
         focus=[
             ("Project creation",
@@ -124,7 +124,7 @@ DIVISIONS = {
                 "regulation, investment and public-interest technology decisions &mdash; grounded in the realities of "
                 "the countries adopting digital public infrastructure fastest.",
         audience="Regulators, policymakers, researchers and funders",
-        contact_email="research@digitaltrustfutures.org",
+        contact_email="research@digitaltrustfuturesfoundation.org",
         focus_title="Research focus areas",
         focus=[
             ("DPI governance and safeguards", "How safeguards obligations are defined, allocated and enforced across the institutions that operate national infrastructure."),
@@ -173,7 +173,7 @@ DIVISIONS = {
                 "open-source communities and local technology teams &mdash; aligned with a principle of open standards "
                 "and knowledge transfer that moves partner teams toward long-term independence rather than dependency.",
         audience="Government officials, maintainers, students, regulators and civic-tech developers",
-        contact_email="academy@digitaltrustfutures.org",
+        contact_email="academy@digitaltrustfuturesfoundation.org",
         focus_title="Target beneficiaries",
         focus=[
             ("Government officials and DPI programme teams", "The people who specify, procure and operate national infrastructure."),
@@ -219,7 +219,7 @@ DIVISIONS = {
                 "and social-impact technology providers that cannot afford commercial cybersecurity services &mdash; "
                 "including those working with high-risk communities.",
         audience="Civil society, community institutions and social-impact technology providers",
-        contact_email="helpdesk@digitaltrustfutures.org",
+        contact_email="helpdesk@digitaltrustfuturesfoundation.org",
         focus_title="What the Centre provides",
         focus=[
             ("Cyber Helpdesk for Civil Society", "A practical first line of support for organisations without in-house security capability."),

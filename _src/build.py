@@ -187,7 +187,7 @@ def support_files():
 
     write(".well-known/security.txt",
           f"# Digital Trust Futures Foundation — security contact\n"
-          f"Contact: mailto:security@digitaltrustfutures.org\n"
+          f"Contact: mailto:security@digitaltrustfuturesfoundation.org\n"
           f"Contact: {SITE}/security.html\n"
           f"Policy: {SITE}/security.html\n"
           f"Expires: {expiry}T00:00:00.000Z\n"

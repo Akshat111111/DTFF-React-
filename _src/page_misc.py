@@ -2,21 +2,21 @@
 from shell import ARROW, icon, cta_band, page_hero, breadcrumb
 
 CONTACTS = [
-    ("mail", "General enquiries", "hello@digitaltrustfutures.org",
+    ("mail", "General enquiries", "hello@digitaltrustfuturesfoundation.org",
      "Anything that does not fit the routes below. We will redirect it rather than let it sit."),
-    ("chart", "Partnerships and funding", "partnerships@digitaltrustfutures.org",
+    ("chart", "Partnerships and funding", "partnerships@digitaltrustfuturesfoundation.org",
      "Funders, development partners, government MOUs and programme partnerships."),
-    ("shield-check", "DPI Trust Lab", "dpi-lab@digitaltrustfutures.org",
+    ("shield-check", "DPI Trust Lab", "dpi-lab@digitaltrustfuturesfoundation.org",
      "Governments and DPI programme teams seeking assessments or safeguards support."),
-    ("branch", "Open source", "opensource@digitaltrustfutures.org",
+    ("branch", "Open source", "opensource@digitaltrustfuturesfoundation.org",
      "Digital public goods and open-source maintainers seeking security or sustainability support."),
-    ("book", "Research", "research@digitaltrustfutures.org",
+    ("book", "Research", "research@digitaltrustfuturesfoundation.org",
      "Peer review, replication requests, university collaboration and fellowship enquiries."),
-    ("buoy", "Civil-society helpdesk", "helpdesk@digitaltrustfutures.org",
+    ("buoy", "Civil-society helpdesk", "helpdesk@digitaltrustfuturesfoundation.org",
      "Nonprofits and community organisations needing practical cyber support."),
-    ("cap", "People and careers", "people@digitaltrustfutures.org",
+    ("cap", "People and careers", "people@digitaltrustfuturesfoundation.org",
      "Fellowships, graduate programme and roles as they open."),
-    ("lock", "Security disclosure", "security@digitaltrustfutures.org",
+    ("lock", "Security disclosure", "security@digitaltrustfuturesfoundation.org",
      "Vulnerability reports relating to this website or to projects the Foundation supports."),
 ]
 
@@ -63,7 +63,7 @@ def contact():
           <div><dt>Registration number</dt><dd>To be published once registration is confirmed.</dd></div>
           <div><dt>Registered address</dt><dd>To be published once confirmed.</dd></div>
           <div><dt>Data protection</dt><dd>Enquiries about personal data may be sent to
-            <a href="mailto:privacy@digitaltrustfutures.org">privacy@digitaltrustfutures.org</a>.</dd></div>
+            <a href="mailto:privacy@digitaltrustfuturesfoundation.org">privacy@digitaltrustfuturesfoundation.org</a>.</dd></div>
         </dl>
         <p class="note mt-6"><strong>Why some fields are blank.</strong> The Foundation publishes registration and
           address detail only once it is confirmed and legally reviewed. An organisation asking others to be
@@ -79,20 +79,20 @@ def contact():
             under a coordinated disclosure process.</p>
           <div class="cluster mt-6">
             <a class="btn btn--accent" href="security.html">Disclosure policy{ARROW}</a>
-            <a class="btn btn--ghost" href="mailto:security@digitaltrustfutures.org">security@digitaltrustfutures.org{ARROW}</a>
+            <a class="btn btn--ghost" href="mailto:security@digitaltrustfuturesfoundation.org">security@digitaltrustfuturesfoundation.org{ARROW}</a>
           </div>
         </div>
 
         <div class="callout mt-6"><h3>Media enquiries</h3>
           <p>Journalists and researchers can reach the Foundation at
-            <a href="mailto:hello@digitaltrustfutures.org">hello@digitaltrustfutures.org</a>. We do not comment on
+            <a href="mailto:hello@digitaltrustfuturesfoundation.org">hello@digitaltrustfuturesfoundation.org</a>. We do not comment on
             unpublished assessments, named partners without consent, or specific vulnerabilities before coordinated
             disclosure is complete.</p></div>
 
         <div class="callout callout--teal mt-6"><h3>Safeguarding concerns</h3>
           <p>Concerns about the conduct of Foundation staff, fellows or partners can be raised confidentially with the
             Safeguarding and Ethics Officer at
-            <a href="mailto:safeguarding@digitaltrustfutures.org">safeguarding@digitaltrustfutures.org</a>. See the
+            <a href="mailto:safeguarding@digitaltrustfuturesfoundation.org">safeguarding@digitaltrustfuturesfoundation.org</a>. See the
             <a href="legal/safeguarding.html">safeguarding policy</a>.</p></div>
       </div>
     </div>
@@ -128,7 +128,7 @@ def security():
         <p class="eyebrow">How to report</p>
         <h2 class="balance">Send it to one address</h2>
         <div class="mt-6">
-          <a class="btn btn--accent btn--lg" href="mailto:security@digitaltrustfutures.org">security@digitaltrustfutures.org{ARROW}</a>
+          <a class="btn btn--accent btn--lg" href="mailto:security@digitaltrustfuturesfoundation.org">security@digitaltrustfuturesfoundation.org{ARROW}</a>
         </div>
         <p class="note mt-6"><strong>Machine-readable.</strong> This policy is also referenced from
           <code>/.well-known/security.txt</code>.</p>
@@ -223,7 +223,7 @@ def security():
   </div>
 </section>
 
-{cta_band("", title="Found something? Tell us before you tell the internet.", text="Coordinated disclosure protects the people using the system while it is being fixed.", primary=("Report a vulnerability", "mailto:security@digitaltrustfutures.org"), secondary=("Contact the Foundation", "contact.html"))}
+{cta_band("", title="Found something? Tell us before you tell the internet.", text="Coordinated disclosure protects the people using the system while it is being fixed.", primary=("Report a vulnerability", "mailto:security@digitaltrustfuturesfoundation.org"), secondary=("Contact the Foundation", "contact.html"))}
 """
     return body
 
@@ -360,8 +360,8 @@ def _legal(title, eyebrow, lede, sections, slug):
       <p class="mono-label">Version 0.1 &middot; Published {"August 2026"} &middot; Next review on legal sign-off</p>
       {content}
       <h2>Questions about this policy</h2>
-      <p>Write to <a href="mailto:privacy@digitaltrustfutures.org">privacy@digitaltrustfutures.org</a>, or to
-        <a href="mailto:hello@digitaltrustfutures.org">hello@digitaltrustfutures.org</a> for anything else. If you are
+      <p>Write to <a href="mailto:privacy@digitaltrustfuturesfoundation.org">privacy@digitaltrustfuturesfoundation.org</a>, or to
+        <a href="mailto:hello@digitaltrustfuturesfoundation.org">hello@digitaltrustfuturesfoundation.org</a> for anything else. If you are
         not satisfied with our response, you may complain to the relevant supervisory authority &mdash; in South Africa,
         the Information Regulator.</p>
     </div>
@@ -416,7 +416,7 @@ def privacy():
             ("Your rights",
              "<p>You may request access to your personal information, correction or deletion, object to processing, "
              "request portability where applicable, and withdraw consent at any time. Write to "
-             "<a href='mailto:privacy@digitaltrustfutures.org'>privacy@digitaltrustfutures.org</a> and we will respond "
+             "<a href='mailto:privacy@digitaltrustfuturesfoundation.org'>privacy@digitaltrustfuturesfoundation.org</a> and we will respond "
              "within the period required by applicable law.</p>"),
             ("Security",
              "<p>We apply the practices we recommend to others: minimal collection, least-privilege access, encryption "
@@ -556,7 +556,7 @@ def safeguarding():
              "appropriate referral to authorities.</p>"),
             ("Raising a concern",
              "<p>Concerns can be raised confidentially with the Safeguarding and Ethics Officer at "
-             "<a href='mailto:safeguarding@digitaltrustfutures.org'>safeguarding@digitaltrustfutures.org</a>. Concerns "
+             "<a href='mailto:safeguarding@digitaltrustfuturesfoundation.org'>safeguarding@digitaltrustfuturesfoundation.org</a>. Concerns "
              "may be raised anonymously. Reports are acknowledged, assessed and acted on, and the Foundation does not "
              "retaliate against anyone who raises a concern in good faith.</p>"),
             ("Governance of this policy",

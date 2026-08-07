@@ -302,7 +302,7 @@ def support():
           comprehensive organisation profile, the positioning and strategy document, programme charters, the draft
           governance policy framework and the monitoring, evaluation and learning framework.</p>
         <div class="cluster mt-6">
-          <a class="btn btn--accent btn--lg" href="mailto:partnerships@digitaltrustfutures.org">partnerships@digitaltrustfutures.org{ARROW}</a>
+          <a class="btn btn--accent btn--lg" href="mailto:partnerships@digitaltrustfuturesfoundation.org">partnerships@digitaltrustfuturesfoundation.org{ARROW}</a>
           <a class="btn btn--ghost btn--lg" href="contact.html">Contact page{ARROW}</a>
         </div>
       </div>
@@ -417,12 +417,12 @@ def news():
         </ul>
       </div>
       <div data-reveal>
-        <form class="form card newsletter-card" action="mailto:hello@digitaltrustfutures.org" method="post" enctype="text/plain">
+        <form class="form card newsletter-card" action="mailto:hello@digitaltrustfuturesfoundation.org" method="post" enctype="text/plain">
           <div class="field">
             <label for="nl-email">Email address</label>
             <input type="email" id="nl-email" name="email" autocomplete="email" required placeholder="you@organisation.org">
             <p class="hint">Until the newsletter platform is live, this opens your email client to send a subscribe
-              request to <strong>hello@digitaltrustfutures.org</strong>.</p>
+              request to <strong>hello@digitaltrustfuturesfoundation.org</strong>.</p>
           </div>
           <label class="checkbox">
             <input type="checkbox" name="consent" required>

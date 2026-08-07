@@ -158,7 +158,7 @@ def open_source():
           or think a component your country depends on needs review &mdash; there is a route in.</p>
         <div class="mt-7 cluster">
           <a class="btn btn--light" href="get-involved.html#support">Request support{ARROW}</a>
-          <a class="btn btn--outline-light" href="mailto:opensource@digitaltrustfutures.org">Email the division{ARROW}</a>
+          <a class="btn btn--outline-light" href="mailto:opensource@digitaltrustfuturesfoundation.org">Email the division{ARROW}</a>
         </div>
       </div>
       <div data-reveal>
@@ -185,26 +185,26 @@ PATHWAYS = [
      "National identity authorities, central banks and payment regulators, ministries of ICT and digital transformation, data-protection and AI regulators, national cybersecurity agencies, and service-delivery ministries.",
      ["DPI trust readiness assessment", "Safeguards accelerator support", "AI governance review",
       "Incident readiness and resilience support"],
-     "dpi-lab@digitaltrustfutures.org", "Government / DPI programme"),
+     "dpi-lab@digitaltrustfuturesfoundation.org", "Government / DPI programme"),
     ("support", "branch", "Digital public goods and open-source maintainers",
      "Maintainers of identity platforms, data-exchange layers, social protection systems, health registries, payment platforms and consent tooling.",
      ["Security baseline review", "SBOM and supply-chain support", "Vulnerability disclosure process",
       "Sustainability and governance advisory"],
-     "opensource@digitaltrustfutures.org", "Digital public good / open source"),
+     "opensource@digitaltrustfuturesfoundation.org", "Digital public good / open source"),
     ("funders", "chart", "Funders and development partners",
      "Philanthropic foundations, multilateral and bilateral donors, development finance institutions and DPI financing facilities.",
      ["Two-year launch investment package", "Programme-specific funding", "Fellowship and fund sponsorship",
       "Co-designed measurement and reporting"],
-     "partnerships@digitaltrustfutures.org", "Funding / partnership"),
+     "partnerships@digitaltrustfuturesfoundation.org", "Funding / partnership"),
     ("helpdesk", "buoy", "Civil-society organisations",
      "Nonprofits, community institutions and social-impact technology providers that cannot afford commercial cybersecurity services.",
      ["Cyber helpdesk", "Digital safety clinic", "Cyber maturity support",
       "Community safety toolkits and training"],
-     "helpdesk@digitaltrustfutures.org", "Civil society support request"),
+     "helpdesk@digitaltrustfuturesfoundation.org", "Civil society support request"),
     ("careers", "cap", "Researchers, fellows and practitioners",
      "Researchers, university partners, early-career practitioners and specialists who want to work on digital trust in the Global South.",
      ["Research fellowships", "Open-source fellowships", "Graduate programme", "Roles as they open"],
-     "people@digitaltrustfutures.org", "Careers / fellowships"),
+     "people@digitaltrustfuturesfoundation.org", "Careers / fellowships"),
 ]
 
 NEXT_STEPS = [
@@ -274,7 +274,7 @@ def get_involved():
 
         <div class="mt-6">
           <p class="mono-label">Prefer to write directly?</p>
-          <p class="mt-3"><a class="link-arrow" href="mailto:hello@digitaltrustfutures.org">hello@digitaltrustfutures.org{ARROW}</a></p>
+          <p class="mt-3"><a class="link-arrow" href="mailto:hello@digitaltrustfuturesfoundation.org">hello@digitaltrustfuturesfoundation.org{ARROW}</a></p>
         </div>
       </div>
 
@@ -358,7 +358,7 @@ def get_involved():
           <li>African Digital Trust Graduate Programme &mdash; Skills and Implementation Academy</li>
         </ul>
         <div class="mt-7 cluster">
-          <a class="btn btn--primary" href="mailto:people@digitaltrustfutures.org">Register your interest{ARROW}</a>
+          <a class="btn btn--primary" href="mailto:people@digitaltrustfuturesfoundation.org">Register your interest{ARROW}</a>
           <a class="btn btn--ghost" href="programmes.html#fellowships">Fellowship detail{ARROW}</a>
         </div>
       </div>

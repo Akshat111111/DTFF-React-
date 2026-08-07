@@ -199,7 +199,7 @@
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var opt = select ? select.options[select.selectedIndex] : null;
-      var email = (opt && opt.getAttribute('data-email')) || 'hello@digitaltrustfutures.org';
+      var email = (opt && opt.getAttribute('data-email')) || 'hello@digitaltrustfuturesfoundation.org';
       var data = new FormData(form);
       var lines = [];
       ['name', 'organisation', 'role', 'country', 'email', 'message'].forEach(function (k) {

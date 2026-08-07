@@ -52,7 +52,7 @@ Then open <http://localhost:8000>.
 **Before go-live:**
 
 1. Point `SITE` in `_src/shell.py` at the production domain if it is not
-   `https://digitaltrustfutures.org`, then rebuild.
+   `https://digitaltrustfuturesfoundation.org`, then rebuild.
 2. Netlify / Cloudflare Pages pick up `_headers` and `_redirects` automatically. On other
    hosts, copy the header block from `_headers` into your server configuration — it carries
    HSTS, a hash-based Content-Security-Policy, `X-Content-Type-Options`, a referrer policy
@@ -67,7 +67,7 @@ Then open <http://localhost:8000>.
 Enquiries are routed per division rather than into one inbox. These addresses must exist:
 
 `hello@` · `partnerships@` · `dpi-lab@` · `opensource@` · `research@` · `helpdesk@` ·
-`people@` · `security@` · `privacy@` · `safeguarding@` — all `@digitaltrustfutures.org`.
+`people@` · `security@` · `privacy@` · `safeguarding@` — all `@digitaltrustfuturesfoundation.org`.
 
 ---
 

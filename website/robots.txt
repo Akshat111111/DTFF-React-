@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 Disallow: /404.html
 
-Sitemap: https://digitaltrustfutures.org/sitemap.xml
+Sitemap: https://digitaltrustfuturesfoundation.org/sitemap.xml

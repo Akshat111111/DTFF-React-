@@ -439,7 +439,7 @@ def research():
           resource has been superseded, the superseding version is linked from the original record.</p>
         <div class="cite-block mt-6">
           <span class="mono-label">Suggested citation format</span>
-          <p><code>Digital Trust Futures Foundation ({{year}}). {{Title}}, version {{n}}. Digital Trust Futures Foundation NPC. Available at digitaltrustfutures.org</code></p>
+          <p><code>Digital Trust Futures Foundation ({{year}}). {{Title}}, version {{n}}. Digital Trust Futures Foundation NPC. Available at digitaltrustfuturesfoundation.org</code></p>
         </div>
       </div>
       <div class="flow" data-reveal>
@@ -448,7 +448,7 @@ def research():
         <p class="text-muted">The Policy and Evidence Centre welcomes peer reviewers, replication requests, university
           collaborations and fellowship enquiries.</p>
         <div class="cluster mt-6">
-          <a class="btn btn--primary" href="mailto:research@digitaltrustfutures.org">research@digitaltrustfutures.org{ARROW}</a>
+          <a class="btn btn--primary" href="mailto:research@digitaltrustfuturesfoundation.org">research@digitaltrustfuturesfoundation.org{ARROW}</a>
           <a class="btn btn--ghost" href="divisions/policy-evidence-centre.html">Policy and Evidence Centre{ARROW}</a>
         </div>
       </div>

@@ -196,35 +196,7 @@ def install_page(p, sig):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Email signature — {p['name']} — {ORG}</title>
-<style>
-  [hidden]{{display:none!important}}
-  body{{margin:0;background:#F7F5F1;color:#131C26;
-    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
-    font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}}
-  .wrap{{max-width:820px;margin:0 auto;padding:40px 24px 80px}}
-  h1{{font-family:Georgia,serif;font-weight:400;font-size:30px;line-height:1.2;
-    letter-spacing:-.5px;color:{NAVY};margin:0 0 6px}}
-  h2{{font-family:Georgia,serif;font-weight:400;font-size:20px;color:{NAVY};
-    margin:38px 0 10px}}
-  .eyebrow{{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;
-    letter-spacing:.16em;text-transform:uppercase;color:{ORANGE};margin:0 0 10px}}
-  .lede{{color:#37434F;margin:0 0 8px;max-width:62ch}}
-  .stage{{background:#fff;border:1px solid #DFD9D0;border-radius:12px;
-    padding:32px;margin:22px 0 8px;overflow-x:auto}}
-  .hint{{font-size:13px;color:#5A6672;margin:0 0 26px}}
-  ol{{padding-left:20px;max-width:66ch}} li{{margin-bottom:9px}}
-  code{{background:#EFEBE4;padding:.12em .4em;border-radius:4px;font-size:.9em}}
-  pre{{background:#fff;border:1px solid #DFD9D0;border-radius:10px;padding:18px;
-    overflow-x:auto;font-size:12.5px;line-height:1.55;white-space:pre-wrap}}
-  .note{{background:#FBE7DA;border-left:3px solid {ORANGE};border-radius:6px;
-    padding:14px 18px;font-size:13.5px;color:#37434F;max-width:70ch}}
-  .btn{{display:inline-block;background:{NAVY};color:#fff;text-decoration:none;
-    padding:11px 20px;border-radius:999px;font-size:14px;font-weight:600;border:0;
-    cursor:pointer;font-family:inherit}}
-  .btn:hover{{background:#1B4B7D}}
-  .ok{{display:inline-block;margin-left:12px;color:{TEAL};font-size:13px;font-weight:600}}
-  hr{{border:0;border-top:1px solid #DFD9D0;margin:34px 0}}
-</style>
+<link rel="stylesheet" href="install.css">
 </head>
 <body>
 <div class="wrap">
@@ -279,8 +251,42 @@ def install_page(p, sig):
   </div>
 </div>
 
-<script>
-document.getElementById('copy').addEventListener('click', function () {{
+<script src="install.js" defer></script>
+</body>
+</html>
+"""
+
+
+INSTALL_CSS = """  [hidden]{{display:none!important}}
+  body{{margin:0;background:#F7F5F1;color:#131C26;
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
+    font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}}
+  .wrap{{max-width:820px;margin:0 auto;padding:40px 24px 80px}}
+  h1{{font-family:Georgia,serif;font-weight:400;font-size:30px;line-height:1.2;
+    letter-spacing:-.5px;color:{NAVY};margin:0 0 6px}}
+  h2{{font-family:Georgia,serif;font-weight:400;font-size:20px;color:{NAVY};
+    margin:38px 0 10px}}
+  .eyebrow{{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;
+    letter-spacing:.16em;text-transform:uppercase;color:{ORANGE};margin:0 0 10px}}
+  .lede{{color:#37434F;margin:0 0 8px;max-width:62ch}}
+  .stage{{background:#fff;border:1px solid #DFD9D0;border-radius:12px;
+    padding:32px;margin:22px 0 8px;overflow-x:auto}}
+  .hint{{font-size:13px;color:#5A6672;margin:0 0 26px}}
+  ol{{padding-left:20px;max-width:66ch}} li{{margin-bottom:9px}}
+  code{{background:#EFEBE4;padding:.12em .4em;border-radius:4px;font-size:.9em}}
+  pre{{background:#fff;border:1px solid #DFD9D0;border-radius:10px;padding:18px;
+    overflow-x:auto;font-size:12.5px;line-height:1.55;white-space:pre-wrap}}
+  .note{{background:#FBE7DA;border-left:3px solid {ORANGE};border-radius:6px;
+    padding:14px 18px;font-size:13.5px;color:#37434F;max-width:70ch}}
+  .btn{{display:inline-block;background:{NAVY};color:#fff;text-decoration:none;
+    padding:11px 20px;border-radius:999px;font-size:14px;font-weight:600;border:0;
+    cursor:pointer;font-family:inherit}}
+  .btn:hover{{background:#1B4B7D}}
+  .ok{{display:inline-block;margin-left:12px;color:{TEAL};font-size:13px;font-weight:600}}
+  hr{{border:0;border-top:1px solid #DFD9D0;margin:34px 0}}
+"""
+
+INSTALL_JS = """document.getElementById('copy').addEventListener('click', function () {{
   var node = document.getElementById('sig');
   var range = document.createRange();
   range.selectNodeContents(node);
@@ -297,14 +303,17 @@ document.getElementById('copy').addEventListener('click', function () {{
   }}
   sel.removeAllRanges();
 }});
-</script>
-</body>
-</html>
 """
 
 
 def main():
     os.makedirs(OUT, exist_ok=True)
+    # External assets: the site's Content-Security-Policy blocks inline
+    # <style> and <script>, so this page follows the same rule as every other.
+    with open(os.path.join(OUT, "install.css"), "w", encoding="utf-8") as fh:
+        fh.write(INSTALL_CSS.replace("{{", "{").replace("}}", "}"))
+    with open(os.path.join(OUT, "install.js"), "w", encoding="utf-8") as fh:
+        fh.write(INSTALL_JS.replace("{{", "{").replace("}}", "}"))
     for p in PEOPLE:
         sig_hosted = signature_html(p, embed=False)
         sig_embedded = signature_html(p, embed=True)

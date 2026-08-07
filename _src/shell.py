@@ -5,7 +5,7 @@ Everything that repeats across pages lives here: <head>, header/navigation,
 footer, and a handful of small markup helpers. Pages supply only their body.
 """
 
-SITE = "https://digitaltrustfutures.org"
+SITE = "https://digitaltrustfuturesfoundation.org"
 ORG_LEGAL = "Digital Trust Futures Foundation NPC"
 ORG = "Digital Trust Futures Foundation"
 TAGLINE = "Safe infrastructure. Trusted technology. Inclusive digital futures."
@@ -166,9 +166,9 @@ def _org_jsonld(base):
   "areaServed": ["Africa", "Global South"],
   "knowsAbout": ["Digital public infrastructure", "Digital public goods", "Cybersecurity assurance", "AI governance", "Digital identity", "Payment security", "Open-source security"],
   "contactPoint": [
-    {{"@type": "ContactPoint", "contactType": "general enquiries", "email": "hello@digitaltrustfutures.org"}},
-    {{"@type": "ContactPoint", "contactType": "partnerships", "email": "partnerships@digitaltrustfutures.org"}},
-    {{"@type": "ContactPoint", "contactType": "security", "email": "security@digitaltrustfutures.org"}}
+    {{"@type": "ContactPoint", "contactType": "general enquiries", "email": "hello@digitaltrustfuturesfoundation.org"}},
+    {{"@type": "ContactPoint", "contactType": "partnerships", "email": "partnerships@digitaltrustfuturesfoundation.org"}},
+    {{"@type": "ContactPoint", "contactType": "security", "email": "security@digitaltrustfuturesfoundation.org"}}
   ]
 }}
 </script>
@@ -244,9 +244,9 @@ def _footer(base):
         <img class="footer-logo" src="{base}assets/img/logo-full-inverse.png" alt="{ORG}" width="988" height="466" loading="lazy">
         <p class="footer-blurb">An independent, non-profit public-benefit organisation strengthening the safety, security, inclusion and trustworthiness of digital public infrastructure, digital public goods, open-source technology and AI-enabled public services.</p>
         <div class="footer-contact">
-          <div>General enquiries · <a href="mailto:hello@digitaltrustfutures.org">hello@digitaltrustfutures.org</a></div>
-          <div>Partnerships · <a href="mailto:partnerships@digitaltrustfutures.org">partnerships@digitaltrustfutures.org</a></div>
-          <div>Security disclosure · <a href="mailto:security@digitaltrustfutures.org">security@digitaltrustfutures.org</a></div>
+          <div>General enquiries · <a href="mailto:hello@digitaltrustfuturesfoundation.org">hello@digitaltrustfuturesfoundation.org</a></div>
+          <div>Partnerships · <a href="mailto:partnerships@digitaltrustfuturesfoundation.org">partnerships@digitaltrustfuturesfoundation.org</a></div>
+          <div>Security disclosure · <a href="mailto:security@digitaltrustfuturesfoundation.org">security@digitaltrustfuturesfoundation.org</a></div>
         </div>
         <p class="mono-label" style="margin-top:1.5rem">{ORG_LEGAL} · South Africa</p>
       </div>
