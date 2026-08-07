@@ -120,8 +120,7 @@ def _head(title, desc, base, canonical, extra_head="", jsonld=""):
 <title>{full_title}</title>
 <meta name="description" content="{desc}">
 <link rel="canonical" href="{SITE}/{canonical}">
-<meta name="theme-color" content="#F7F5F1" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#080F17" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F7F5F1">
 <meta name="color-scheme" content="light dark">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="{ORG}">

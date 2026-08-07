@@ -12,8 +12,9 @@
   var root = document.documentElement;
   var STORE = 'dtff-theme';
 
-  function systemDark() { return window.matchMedia('(prefers-color-scheme: dark)').matches; }
-  function currentTheme() { return root.getAttribute('data-theme') || (systemDark() ? 'dark' : 'light'); }
+  // Light is the default for everyone; dark is opt-in and remembered. The
+  // operating-system setting is deliberately not consulted.
+  function currentTheme() { return root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'; }
 
   function syncToggleLabel() {
     var next = currentTheme() === 'dark' ? 'light' : 'dark';

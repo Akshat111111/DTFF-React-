@@ -80,33 +80,8 @@
   color-scheme:light;
 }
 
-@media (prefers-color-scheme:dark) { :root:not([data-theme='light']) { color-scheme:dark; } }
-
 :root[data-theme='dark'],
-:root:not([data-theme='light']) { }
-
-/* Dark theme values, applied by media query and by explicit toggle */
-@media (prefers-color-scheme:dark) {
-  :root:not([data-theme='light']) {
-    --bg:#080F17; --bg-alt:#0B1622; --surface:#101E2C; --surface-2:#152738;
-    --surface-sunken:#0B1622;
-    --text:#E9EEF3; --text-2:#B7C4D1; --text-3:#8DA0B2;
-    --heading:#F2F6FA;
-    --accent:#F08544; --accent-text:#F79A62;
-    --accent-2:#4FBCC2; --accent-2-text:#6ECFD4;
-    --border:#213345; --border-2:#2C4257; --border-strong:#3D5771;
-    --link:#93BCDF;
-    --ring:#F08544;
-    --shadow-1:0 1px 2px rgba(0,0,0,.4);
-    --shadow-2:0 2px 4px rgba(0,0,0,.35), 0 12px 32px -8px rgba(0,0,0,.6);
-    --shadow-3:0 4px 8px rgba(0,0,0,.4), 0 28px 64px -16px rgba(0,0,0,.7);
-    --tint-navy:rgba(127,165,198,.08);
-    --tint-orange:rgba(240,133,68,.10);
-    --tint-teal:rgba(79,188,194,.10);
-    --header-bg:rgba(8,15,23,.82);
-    --scrim:rgba(0,0,0,.6);
-  }
-}
+/* Dark theme values, applied only when the reader opts in via the toggle. */
 :root[data-theme='dark'] {
   color-scheme:dark;
   --bg:#080F17; --bg-alt:#0B1622; --surface:#101E2C; --surface-2:#152738;
@@ -128,6 +103,15 @@
   --scrim:rgba(0,0,0,.6);
   --brass-600:#D2B27E;
 }
+
+
+/* Theme
+   ------
+   Light is the default for everyone, regardless of operating-system setting.
+   Dark is opt-in through the header toggle, which sets data-theme="dark" on
+   <html> and remembers the choice in localStorage. There is deliberately no
+   prefers-color-scheme rule here: an institutional site should look the same
+   to a funder and a maintainer unless one of them asks otherwise. */
 
 /* ── 2. Reset ────────────────────────────────────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box}
@@ -288,10 +272,6 @@ code,kbd,samp{font-family:var(--font-mono);font-size:.9em;
 .brand-logo-dark{display:none}
 :root[data-theme='dark'] .brand-logo-light{display:none}
 :root[data-theme='dark'] .brand-logo-dark{display:block}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme='light']) .brand-logo-light{display:none}
-  :root:not([data-theme='light']) .brand-logo-dark{display:block}
-}
 .brand-text{display:none}
 
 .nav{display:none}
@@ -333,10 +313,6 @@ code,kbd,samp{font-family:var(--font-mono);font-size:.9em;
 .theme-toggle .icon-moon{display:none}
 :root[data-theme='dark'] .theme-toggle .icon-moon{display:block}
 :root[data-theme='dark'] .theme-toggle .icon-sun{display:none}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme='light']) .theme-toggle .icon-moon{display:block}
-  :root:not([data-theme='light']) .theme-toggle .icon-sun{display:none}
-}
 .header-actions .header-cta{display:none}
 @media (min-width:1080px){.header-actions .header-cta{display:inline-flex}}
 
@@ -410,11 +386,6 @@ body.nav-open{overflow:hidden}
 .btn--block{display:flex;width:100%}
 :root[data-theme='dark'] .btn--primary{background:var(--navy-600)}
 :root[data-theme='dark'] .btn--primary:hover{background:var(--navy-500)}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme='light']) .btn--primary{background:var(--navy-600)}
-  :root:not([data-theme='light']) .btn--primary:hover{background:var(--navy-500)}
-}
-
 .link-arrow{display:inline-flex;align-items:center;gap:.45rem;font-weight:600;
   font-size:var(--step--1);text-decoration:none;color:var(--accent-text);
   border-bottom:1px solid color-mix(in srgb,var(--accent) 35%,transparent);padding-bottom:.12rem}
@@ -563,9 +534,6 @@ tfoot td{background:var(--surface-2);font-weight:650;color:var(--heading);border
 .chip:hover{border-color:var(--navy-600);color:var(--heading)}
 .chip[aria-pressed='true']{background:var(--navy-800);border-color:var(--navy-800);color:#fff}
 :root[data-theme='dark'] .chip[aria-pressed='true']{background:var(--navy-500);border-color:var(--navy-500)}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme='light']) .chip[aria-pressed='true']{background:var(--navy-500);border-color:var(--navy-500)}
-}
 .filter-count{margin-left:auto;font-family:var(--font-mono);font-size:var(--step--2);
   color:var(--text-3);letter-spacing:.08em}
 .is-hidden{display:none!important}
@@ -692,13 +660,6 @@ tfoot td{background:var(--surface-2);font-weight:650;color:var(--heading);border
 :root[data-theme='dark'] .chain-step:nth-child(4){--step-text:var(--navy-300)}
 :root[data-theme='dark'] .chain-step:nth-child(2){--step-text:var(--orange-400)}
 :root[data-theme='dark'] .chain-step:nth-child(3){--step-text:var(--teal-300)}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme='light']) .chain-step:nth-child(1),
-  :root:not([data-theme='light']) .chain-step:nth-child(4){--step-text:var(--navy-300)}
-  :root:not([data-theme='light']) .chain-step:nth-child(2){--step-text:var(--orange-400)}
-  :root:not([data-theme='light']) .chain-step:nth-child(3){--step-text:var(--teal-300)}
-}
-
 /* Citizen orbit ---------------------------------------------------------- */
 .orbit{position:relative;display:grid;gap:.85rem;isolation:isolate}
 .orbit-core{background:var(--navy-800);color:#fff;border-radius:var(--radius-l);
@@ -785,7 +746,6 @@ tfoot td{background:var(--surface-2);font-weight:650;color:var(--heading);border
   display:grid;place-items:center;font-family:var(--font-mono);font-size:var(--step--1);font-weight:500}
 .prog-card h3{color:var(--pc);font-size:var(--step-2);letter-spacing:-.015em}
 :root[data-theme='dark'] .prog-card--1 h3{color:var(--navy-300)}
-@media (prefers-color-scheme:dark){:root:not([data-theme='light']) .prog-card--1 h3{color:var(--navy-300)}}
 .prog-card p{font-size:var(--step--1);color:var(--text-2);line-height:1.65;margin:0}
 .prog-card .prog-foot{margin-top:auto;padding-top:var(--sp-4);border-top:1px solid var(--border)}
 
@@ -853,7 +813,6 @@ tfoot td{background:var(--surface-2);font-weight:650;color:var(--heading);border
 .div-card .dc-index{font-family:var(--font-mono);font-size:var(--step--2);letter-spacing:.14em;
   color:var(--dc-text,var(--dc));font-weight:500}
 :root[data-theme='dark'] .div-card .dc-index{color:var(--text-3)}
-@media (prefers-color-scheme:dark){:root:not([data-theme='light']) .div-card .dc-index{color:var(--text-3)}}
 .div-card h3{font-size:var(--step-1);line-height:1.28;transition:color .2s var(--ease)}
 .div-card:hover h3{color:var(--accent-text)}
 .div-card p{font-size:var(--step--1);color:var(--text-2);line-height:1.62;margin:0}
@@ -887,8 +846,6 @@ tfoot td{background:var(--surface-2);font-weight:650;color:var(--heading);border
 .status--development{background:var(--tint-orange);color:var(--accent-text)}
 .status--live{background:var(--tint-teal);color:var(--accent-2-text)}
 :root[data-theme='dark'] .status--planned{color:var(--navy-300)}
-@media (prefers-color-scheme:dark){:root:not([data-theme='light']) .status--planned{color:var(--navy-300)}}
-
 /* Pathways --------------------------------------------------------------- */
 .pathway{display:grid;gap:1.25rem;padding:clamp(1.4rem,1.1rem + 1.2vw,2rem);
   background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-l);
@@ -1027,6 +984,9 @@ select{appearance:none;
 
 /* Full-bleed photo band --------------------------------------------------- */
 .photo-band{position:relative;isolation:isolate;overflow:hidden;color:#fff;
+  /* Base colour behind the photograph: if the image is slow, blocked or fails,
+     the white text still lands on navy rather than on the page background. */
+  background-color:var(--navy-900);
   padding-block:clamp(4rem,3rem + 6vw,8rem);display:grid;align-items:center;min-height:clamp(24rem,50vh,38rem)}
 .photo-band-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
 .photo-band-scrim{position:absolute;inset:0;z-index:-1;
@@ -1058,7 +1018,6 @@ select{appearance:none;
   mask-image:linear-gradient(#000 62%,rgba(0,0,0,.35));
   opacity:.92}
 :root[data-theme='dark'] .prog-media{opacity:.6}
-@media (prefers-color-scheme:dark){:root:not([data-theme='light']) .prog-media{opacity:.6}}
 .prog-card .prog-index{margin-top:-2.6rem;position:relative;z-index:1;box-shadow:0 0 0 5px var(--surface)}
 
 /* Outcome strip ----------------------------------------------------------- */
@@ -1110,8 +1069,6 @@ select{appearance:none;
   font-family:var(--font-mono);font-size:.6rem;color:var(--navy-600);border-radius:var(--radius-s);
   margin-top:.12em;letter-spacing:0}
 :root[data-theme='dark'] .numbered-check li::before{color:var(--navy-300)}
-@media (prefers-color-scheme:dark){:root:not([data-theme='light']) .numbered-check li::before{color:var(--navy-300)}}
-
 /* Theory of change columns ------------------------------------------------ */
 .toc-grid{display:grid;gap:1px;background:var(--border);border:1px solid var(--border);
   border-radius:var(--radius-l);overflow:hidden}
@@ -1173,8 +1130,6 @@ select{appearance:none;
 @media (min-width:720px){.programme-header{grid-template-columns:auto 1fr;gap:1.75rem}}
 .programme-header h2{color:var(--pc)}
 :root[data-theme='dark'] .programme-header.prog-card--1 h2{color:var(--navy-300)}
-@media (prefers-color-scheme:dark){:root:not([data-theme='light']) .programme-header.prog-card--1 h2{color:var(--navy-300)}}
-
 .expected{padding:1.15rem 1.35rem;border-radius:var(--radius);background:var(--tint-teal);
   border-left:3px solid var(--accent-2)}
 .expected p{margin:.5rem 0 0;font-family:var(--font-display);font-size:var(--step-1);line-height:1.45;
