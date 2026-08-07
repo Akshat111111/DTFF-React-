@@ -230,7 +230,7 @@ def get_involved():
         for pid, ic, title, desc, offers, email, label in PATHWAYS)
 
     options = "".join(
-        f'<option value="{label}" data-email="{email}">{label}</option>'
+        f'<option value="Enquiry &mdash; {label}" data-email="{email}">{label}</option>'
         for *_, email, label in PATHWAYS)
 
     steps = "".join(
@@ -267,10 +267,12 @@ def get_involved():
         <p class="text-muted">The more concrete the system, constraint or question, the faster we can tell you whether
           we are the right organisation &mdash; and if we are not, who might be.</p>
 
-        <div class="note mt-6"><strong>How this form works.</strong> The Foundation does not run third-party form
-          processing or analytics on this site. Submitting opens your own email client with the message drafted and
-          the subject line already set, so it reaches the right person on our side. Nothing is transmitted to us until
-          you press send. If you prefer, write to the address below directly.</div>
+        <div class="note mt-6"><strong>How this form works.</strong> Submissions are delivered to the Foundation by
+          Web3Forms, a form-delivery service acting as our processor. It passes your message to
+          <strong>info@digitaltrustfuturesfoundation.org</strong> and does not use it for anything else. No account is
+          created and no cookie is set. What you send, and how long we keep it, is set out in the
+          <a href="legal/privacy.html">privacy policy</a>. If you would rather not use a third party at all, email us
+          directly at the address below.</div>
 
         <div class="mt-6">
           <p class="mono-label">Prefer to write directly?</p>
@@ -278,10 +280,16 @@ def get_involved():
         </div>
       </div>
 
-      <form class="form card" data-route-form novalidate data-reveal>
+      <form class="form card" action="https://api.web3forms.com/submit" method="POST" data-route-form data-reveal>
+        <input type="hidden" name="access_key" value="65b5c951-5ecf-4ac9-8dfc-0b467534e77e">
+        <input type="hidden" name="from_name" value="Digital Trust Futures Foundation website">
+        <input type="hidden" name="redirect" value="https://digitaltrustfuturesfoundation.org/thank-you.html">
+        <!-- Honeypot: hidden from people, filled in by bots. -->
+        <input type="checkbox" name="botcheck" class="visually-hidden" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+
         <div class="field">
-          <label for="topic">What is this about?<span class="req" aria-hidden="true">*</span></label>
-          <select id="topic" name="topic" data-route-select required>{options}</select>
+          <label for="subject">What is this about?<span class="req" aria-hidden="true">*</span></label>
+          <select id="subject" name="subject" data-route-select required>{options}</select>
           <p class="hint" data-route-target></p>
         </div>
         <div class="form-grid form-grid--2">
@@ -313,12 +321,12 @@ def get_involved():
           <textarea id="message" name="message" required placeholder="The system, the constraint, and what a good outcome would look like."></textarea>
         </div>
         <label class="checkbox">
-          <input type="checkbox" name="consent" required>
-          <span>I understand this will open my email client and that no data is sent to the Foundation until I send
-            that email. Please do not include security-sensitive detail here &mdash; use the
-            <a href="security.html">vulnerability disclosure route</a> instead.</span>
+          <input type="checkbox" name="consent" value="yes" required>
+          <span>I consent to the Foundation processing these details in order to respond, as set out in the
+            <a href="legal/privacy.html">privacy policy</a>. Please do not include security-sensitive detail here
+            &mdash; use the <a href="security.html">vulnerability disclosure route</a> instead.</span>
         </label>
-        <button class="btn btn--accent btn--lg" type="submit">Compose enquiry{ARROW}</button>
+        <button class="btn btn--accent btn--lg" type="submit">Send enquiry{ARROW}</button>
         <p class="form-note" data-form-status hidden role="status"></p>
       </form>
     </div>

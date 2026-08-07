@@ -171,19 +171,23 @@
         </ul>
       </div>
       <div data-reveal>
-        <form class="form card newsletter-card" action="mailto:info@digitaltrustfuturesfoundation.org" method="post" enctype="text/plain">
+        <form class="form card newsletter-card" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="65b5c951-5ecf-4ac9-8dfc-0b467534e77e">
+          <input type="hidden" name="subject" value="Newsletter signup">
+          <input type="hidden" name="from_name" value="Digital Trust Futures Foundation website">
+          <input type="hidden" name="redirect" value="https://digitaltrustfuturesfoundation.org/thank-you.html?t=newsletter">
+          <input type="checkbox" name="botcheck" class="visually-hidden" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="field">
             <label for="nl-email">Email address</label>
             <input type="email" id="nl-email" name="email" autocomplete="email" required placeholder="you@organisation.org">
-            <p class="hint">Until the newsletter platform is live, this opens your email client to send a subscribe
-              request to <strong>info@digitaltrustfuturesfoundation.org</strong>.</p>
+            <p class="hint">We will add you to the list and confirm by email. Unsubscribe from any message.</p>
           </div>
           <label class="checkbox">
-            <input type="checkbox" name="consent" required>
+            <input type="checkbox" name="consent" value="yes" required>
             <span>I consent to receiving occasional updates from the Digital Trust Futures Foundation and understand I
               can unsubscribe at any time. See the <a href="legal/privacy.html">privacy policy</a>.</span>
           </label>
-          <button class="btn btn--accent" type="submit">Request updates<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <button class="btn btn--accent" type="submit">Subscribe<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
         </form>
       </div>
     </div>

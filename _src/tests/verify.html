@@ -1,7 +1,7 @@
 <!DOCTYPE html><html><head><meta charset="utf-8"><title>DTFF verification</title></head><body>
 <pre id="results">pending</pre><div id="frames"></div>
 <script>
-const PAGES=["index.html","about.html","governance.html","what-we-do.html","programmes.html","research.html","open-source.html","get-involved.html","support-our-work.html","news.html","contact.html","security.html","credits.html","404.html","divisions/dpi-trust-lab.html","divisions/open-digital-commons.html","divisions/policy-evidence-centre.html","divisions/skills-academy.html","divisions/cyber-safety-centre.html","legal/privacy.html","legal/cookies.html","legal/terms.html","legal/safeguarding.html"];
+const PAGES=["index.html","about.html","governance.html","what-we-do.html","programmes.html","research.html","open-source.html","get-involved.html","support-our-work.html","news.html","contact.html","security.html","credits.html","thank-you.html","404.html","divisions/dpi-trust-lab.html","divisions/open-digital-commons.html","divisions/policy-evidence-centre.html","divisions/skills-academy.html","divisions/cyber-safety-centre.html","legal/privacy.html","legal/cookies.html","legal/terms.html","legal/safeguarding.html"];
 const WIDTHS=[360,390,768,1024,1440];
 function parse(c){const m=c.match(/rgba?\(([\d.]+),\s*([\d.]+),\s*([\d.]+)(?:,\s*([\d.]+))?\)/);return m?{r:+m[1],g:+m[2],b:+m[3],a:m[4]===undefined?1:+m[4]}:null}
 function lum(c){const f=v=>{v/=255;return v<=0.03928?v/12.92:Math.pow((v+0.055)/1.055,2.4)};return 0.2126*f(c.r)+0.7152*f(c.g)+0.0722*f(c.b)}
@@ -49,7 +49,10 @@ function load(f,src){return new Promise(r=>{f.src=src;f.onload=()=>setTimeout(r,
        let prev=0;d.querySelectorAll('h1,h2,h3,h4,h5,h6').forEach(h=>{const l=+h.tagName[1];if(prev&&l>prev+1)struct.push(p+' h'+prev+'->h'+l);prev=l});
        d.querySelectorAll('img').forEach(im=>{if(!im.hasAttribute('alt'))struct.push(p+' img no alt')});
        d.querySelectorAll('a').forEach(a=>{if(!((a.textContent||'').trim()||a.getAttribute('aria-label')||a.querySelector('img')))struct.push(p+' link no name')});
-       d.querySelectorAll('input,select,textarea').forEach(i=>{if(!(i.id&&d.querySelector('label[for="'+i.id+'"]'))&&!i.closest('label')&&!i.getAttribute('aria-label'))struct.push(p+' input no label: '+(i.name||i.type))});
+       d.querySelectorAll('input,select,textarea').forEach(i=>{
+         // Hidden inputs and the honeypot are not exposed to assistive tech.
+         if(i.type==='hidden'||i.getAttribute('aria-hidden')==='true'||w.getComputedStyle(i).display==='none')return;
+         if(!(i.id&&d.querySelector('label[for="'+i.id+'"]'))&&!i.closest('label')&&!i.getAttribute('aria-label'))struct.push(p+' input no label: '+(i.name||i.type))});
        if(!d.querySelector('main'))struct.push(p+' no main landmark');
        if(!d.querySelector('.skip-link'))struct.push(p+' no skip link');
        if(!d.querySelector('link[rel=canonical]'))struct.push(p+' no canonical');

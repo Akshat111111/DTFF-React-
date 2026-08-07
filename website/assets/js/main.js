@@ -182,41 +182,24 @@
     apply('all');
   });
 
-  /* ── Enquiry form: route to the right inbox, no data leaves the browser ── */
+  /* ── Enquiry form ────────────────────────────────────────────────────────
+     The form posts natively to Web3Forms, so it works with JavaScript off.
+     This only mirrors the chosen topic back to the reader so they can see how
+     their message will be labelled when it arrives. */
   $$('[data-route-form]').forEach(function (form) {
     var select = $('[data-route-select]', form);
     var out = $('[data-route-target]', form);
-    function update() {
-      if (!select || !out) return;
-      var opt = select.options[select.selectedIndex];
-      var email = opt ? opt.getAttribute('data-email') : null;
-      if (email && opt) {
-        out.innerHTML = 'Sent to <a href="mailto:' + email + '">' + email + '</a> with the subject ' +
-          '<strong>Enquiry \u2014 ' + opt.value + '</strong>, so it reaches the right person.';
-      }
-    }
-    if (select) { select.addEventListener('change', update); update(); }
+    if (!select || !out) return;
 
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var opt = select ? select.options[select.selectedIndex] : null;
-      var email = (opt && opt.getAttribute('data-email')) || 'info@digitaltrustfuturesfoundation.org';
-      var data = new FormData(form);
-      var lines = [];
-      ['name', 'organisation', 'role', 'country', 'email', 'message'].forEach(function (k) {
-        if (data.get(k)) lines.push(k.charAt(0).toUpperCase() + k.slice(1) + ': ' + data.get(k));
-      });
-      var subject = 'Enquiry — ' + (data.get('topic') || 'General');
-      window.location.href = 'mailto:' + email +
-        '?subject=' + encodeURIComponent(subject) +
-        '&body=' + encodeURIComponent(lines.join('\n\n'));
-      var note = $('[data-form-status]', form);
-      if (note) {
-        note.hidden = false;
-        note.textContent = 'Your email client should now open with this enquiry addressed to ' + email +
-          '. If nothing happens, email us directly at ' + email + '.';
-      }
-    });
+    function update() {
+      var opt = select.options[select.selectedIndex];
+      if (!opt) return;
+      var label = opt.textContent.trim();
+      out.innerHTML = 'Your message will arrive labelled <strong>' + label + '</strong>, so it reaches the right ' +
+        'person on our side.';
+    }
+    select.addEventListener('change', update);
+    update();
   });
 
   /* ── Hero lattice ──────────────────────────────────────────────────────────

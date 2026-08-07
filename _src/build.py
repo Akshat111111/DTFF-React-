@@ -105,6 +105,11 @@ add("credits.html",
     desc="Typefaces, photography credits, licensing of the Foundation's own material, and how this website is built.",
     body=page_misc.credits(), active="", canonical="credits.html")
 
+add("thank-you.html",
+    title="Thank you",
+    desc="Your message has reached the Digital Trust Futures Foundation.",
+    body=page_misc.thank_you(), active="", canonical="thank-you.html")
+
 add("404.html",
     title="Page not found",
     desc="The page you requested could not be found.",
@@ -166,7 +171,7 @@ def support_files():
     priority = {"index.html": "1.0", "what-we-do.html": "0.9", "support-our-work.html": "0.9",
                 "programmes.html": "0.9", "about.html": "0.8", "research.html": "0.8"}
     for path, _ in PAGES:
-        if path == "404.html":
+        if path in ("404.html", "thank-you.html"):
             continue
         loc = f"{SITE}/{path}"
         urls.append(f"  <url>\n    <loc>{loc}</loc>\n    <lastmod>{today}</lastmod>\n"
@@ -215,7 +220,7 @@ def support_files():
     # Security headers for common static hosts (Netlify / Cloudflare Pages style)
     write("_headers", """/*
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-JYmTW2tRUZZpSWTSZi9EWttbAatxP8E/empbZQZ+qjA='; script-src-attr 'none'; style-src 'self'; style-src-attr 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self' mailto:; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-JYmTW2tRUZZpSWTSZi9EWttbAatxP8E/empbZQZ+qjA='; script-src-attr 'none'; style-src 'self'; style-src-attr 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self' https://api.web3forms.com; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), interest-cohort=()

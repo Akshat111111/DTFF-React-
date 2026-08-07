@@ -219,9 +219,10 @@ def security():
       <p>As a digital trust organisation, our own site should meet the standard we ask of others.</p>
     </div>
     <div class="grid grid-3" data-reveal-stagger>
-      <article class="card"><h3 class="card-title">No third-party requests</h3>
-        <p>Fonts, scripts, styles and images are served from this origin. The site makes no requests to content delivery
-          networks, font services, analytics providers or social platforms.</p></article>
+      <article class="card"><h3 class="card-title">No third-party requests while you browse</h3>
+        <p>Fonts, scripts, styles and images are served from this origin. Reading the site contacts no content delivery
+          network, font service, analytics provider or social platform. The single exception is deliberate and
+          user-initiated: submitting a form posts it to Web3Forms, our form-delivery processor.</p></article>
       <article class="card"><h3 class="card-title">No tracking, no cookies by default</h3>
         <p>The site sets no cookies for analytics, advertising or profiling. The only stored value is your light or dark
           theme preference, kept in your own browser.</p></article>
@@ -399,18 +400,23 @@ def privacy():
                            "course of its programmes.</p>"),
             ("What this website collects",
              "<p><strong>Nothing automatically beyond standard server logs.</strong> This site sets no analytics, "
-             "advertising or profiling cookies, embeds no third-party scripts, and makes no requests to external "
-             "domains. Fonts and images are served from this origin.</p>"
+             "advertising or profiling cookies and embeds no third-party scripts. Fonts and images are served from "
+             "this origin, so simply reading the site contacts no one but us. The only external request is one you "
+             "trigger yourself: submitting a form.</p>"
              "<ul><li><strong>Server logs</strong> — your IP address, request time, requested page, referrer and user "
              "agent, retained by our hosting provider for security and troubleshooting, then deleted on a short "
              "rolling schedule.</li>"
              "<li><strong>Theme preference</strong> — whether you chose the light or dark theme, stored in your own "
              "browser. It never reaches us.</li></ul>"),
             ("What you choose to send us",
-             "<p>If you use an enquiry form, the form composes a message in your own email client; nothing reaches us "
-             "until you send it. When you do write to us, we process what you send: your name, contact details, "
-             "organisation and the content of your message. We use it to respond, to route your enquiry to the right "
-             "division, and to keep a record of the engagement.</p>"),
+             "<p>When you submit an enquiry form we process what you send: your name, email address, organisation, "
+             "country, role, the topic you selected and the content of your message. We use it to respond to you and "
+             "to keep a record of the engagement. The same applies to anything you email us directly.</p>"
+             "<p><strong>How form submissions reach us.</strong> Forms post to "
+             "<a href='https://web3forms.com'>Web3Forms</a>, a form-delivery service acting as our processor. It "
+             "receives your submission, forwards it to info@digitaltrustfuturesfoundation.org, and does not use it "
+             "for any other purpose. No account is created for you and no cookie is set on this site. If you would "
+             "rather not involve a third party, email us directly instead &mdash; the address is on every page.</p>"),
             ("Newsletter", "<p>If you ask for updates, we process your email address on the basis of your consent. "
                            "Every message includes an unsubscribe link, and withdrawing consent is as easy as giving "
                            "it.</p>"),
@@ -426,8 +432,12 @@ def privacy():
              "(POPIA) in South Africa and, where relevant, the General Data Protection Regulation (GDPR).</p>"),
             ("Who we share with",
              "<p>We do not sell personal information and we do not share it for marketing. We use a small number of "
-             "processors &mdash; hosting, email and, in future, a newsletter platform &mdash; each under a written "
-             "data-processing agreement. Processors will be named here once the platform selection is finalised.</p>"),
+             "processors, each handling data only on our instructions:</p>"
+             "<ul><li><strong>GitHub Pages</strong> &mdash; website hosting and server logs.</li>"
+             "<li><strong>Hostinger</strong> &mdash; email for the info@ mailbox.</li>"
+             "<li><strong>Web3Forms</strong> &mdash; delivery of form submissions to that mailbox.</li></ul>"
+             "<p>A newsletter platform will be added to this list when one is selected, before it is used. Where a "
+             "processor is located outside South Africa, the transfer is made under appropriate safeguards.</p>"),
             ("Retention",
              "<p>Enquiry correspondence is kept for as long as the relationship requires and then archived or deleted. "
              "Newsletter data is kept until you unsubscribe. Server logs are kept on a short rolling schedule.</p>"),
@@ -469,6 +479,8 @@ def cookies():
              "<li>No advertising, retargeting or conversion pixels.</li>"
              "<li>No social media embeds, share widgets or comment systems.</li>"
              "<li>No third-party fonts, content delivery networks or hosted scripts.</li>"
+             "<li>No third-party code runs on this site at all. Submitting a form posts it to our form-delivery "
+             "processor, which is an action you take rather than something that happens while you read.</li>"
              "<li>No session recording, heatmaps or A/B testing tools.</li></ul>"),
             ("If this changes",
              "<p>If the Foundation later adopts privacy-respecting analytics or a newsletter platform that sets "
@@ -612,6 +624,64 @@ def not_found():
       <a class="div-card" href="/open-source.html"><h3>Open source</h3><p>Supported projects, advisories and contribution routes.</p><span class="dc-more">Open {icon("arrow")}</span></a>
       <a class="div-card" href="/security.html"><h3>Security disclosure</h3><p>How to report a vulnerability to the Foundation.</p><span class="dc-more">Open {icon("arrow")}</span></a>
       <a class="div-card" href="/contact.html"><h3>Contact</h3><p>Routed contact addresses for every division.</p><span class="dc-more">Open {icon("arrow")}</span></a>
+    </div>
+  </div>
+</section>
+"""
+
+
+# ── Thank you (form redirect target) ─────────────────────────────────────────
+def thank_you():
+    return f"""<section class="page-hero" style="padding-block:clamp(3.5rem,2.5rem + 5vw,6.5rem)">
+  <div class="container">
+    <p class="eyebrow">Message received</p>
+    <h1 class="balance">Thank you &mdash; that has reached us</h1>
+    <p class="lede pretty">Your message has been delivered to
+      <strong>info@digitaltrustfuturesfoundation.org</strong>. We read everything that arrives and will come back to
+      you, normally within a few working days.</p>
+    <div class="cluster cluster--lg mt-7">
+      <a class="btn btn--accent btn--lg" href="index.html">Back to the home page{ARROW}</a>
+      <a class="btn btn--outline-light btn--lg" href="what-we-do.html">Explore our work{ARROW}</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="split split--sticky">
+      <div data-reveal>
+        <p class="eyebrow">What happens next</p>
+        <h2 class="balance">From first message to published lesson</h2>
+        <p class="lede mt-4">The Foundation works through written scopes and agreements. That is slower than a
+          handshake and considerably more useful when findings turn out to be uncomfortable.</p>
+      </div>
+      <div class="steps" data-reveal>
+        <div class="step"><span class="step-num">01</span>
+          <div><h3>Acknowledgement</h3><p>We confirm receipt and tell you who is picking the enquiry up.</p></div></div>
+        <div class="step"><span class="step-num">02</span>
+          <div><h3>Scoping conversation</h3><p>A short call to understand the system, the constraint and what would actually help.</p></div></div>
+        <div class="step"><span class="step-num">03</span>
+          <div><h3>Written scope</h3><p>A defined scope, deliverables, timeline, disclosure terms and any partner obligations.</p></div></div>
+        <div class="step"><span class="step-num">04</span>
+          <div><h3>Agreement</h3><p>A written agreement covering roles, confidentiality, publication and safeguarding.</p></div></div>
+        <div class="step"><span class="step-num">05</span>
+          <div><h3>Delivery and publication</h3><p>Work delivered, findings shared with you first, anonymised lessons published where agreed.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="grid grid-2" data-reveal-stagger>
+      <div class="callout"><h3>Did you mean to report a vulnerability?</h3>
+        <p>Security findings should go through the coordinated disclosure route rather than the general enquiry form,
+          so they are handled correctly from the first message.
+          <a href="security.html">Read the disclosure policy</a>.</p></div>
+      <div class="callout callout--teal"><h3>Nothing arrived?</h3>
+        <p>If you have not heard from us within five working days, write directly to
+          <a href="mailto:info@digitaltrustfuturesfoundation.org">info@digitaltrustfuturesfoundation.org</a> &mdash;
+          delivery failures are rare but not impossible, and we would rather hear twice than not at all.</p></div>
     </div>
   </div>
 </section>
