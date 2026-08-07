@@ -48,13 +48,29 @@ PEOPLE = [
 ]
 
 
-def signature_html(p):
-    """The signature block itself — this is what gets pasted into the client."""
+def _data_uri(filename):
+    """Inline an image as base64 so it renders with no hosting at all."""
+    import base64
+    path = os.path.join(HERE, "..", "website", "assets", "img", "signature", filename)
+    with open(path, "rb") as fh:
+        return "data:image/png;base64," + base64.b64encode(fh.read()).decode()
+
+
+def signature_html(p, embed=False):
+    """The signature block itself — this is what gets pasted into the client.
+
+    embed=True inlines the images as base64. Use it for the install page: the
+    photo then renders before the site is published, and because mail clients
+    re-host or attach images from pasted content, the photo travels with the
+    signature instead of depending on a live URL.
+    """
     web_label = BASE.replace("https://", "")
+    photo_src = _data_uri(p["photo"]) if embed else f"{BASE}/assets/img/signature/{p['photo']}"
+    logo_src = _data_uri("dtff-logo.png") if embed else f"{BASE}/assets/img/signature/dtff-logo.png"
     return f"""<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;max-width:600px;font-family:{SANS};">
   <tr>
     <td style="padding:0 18px 0 0;vertical-align:top;" width="100">
-      <img src="{BASE}/assets/img/signature/{p['photo']}" width="100" height="100" alt="{p['name']}" style="display:block;width:100px;height:100px;border:0;outline:none;text-decoration:none;">
+      <img src="{photo_src}" width="100" height="100" alt="{p['name']}" style="display:block;width:100px;height:100px;border:0;outline:none;text-decoration:none;">
     </td>
     <td style="vertical-align:top;padding:0;">
 
@@ -102,7 +118,7 @@ def signature_html(p):
       <tr>
         <td style="padding:0 16px 0 0;vertical-align:middle;" width="150">
           <a href="{BASE}" style="text-decoration:none;border:0;">
-            <img src="{BASE}/assets/img/signature/dtff-logo.png" width="150" height="72" alt="{ORG}" style="display:block;width:150px;height:72px;border:0;outline:none;text-decoration:none;">
+            <img src="{logo_src}" width="150" height="72" alt="{ORG}" style="display:block;width:150px;height:72px;border:0;outline:none;text-decoration:none;">
           </a>
         </td>
         <td style="vertical-align:middle;padding:0;">
@@ -254,10 +270,12 @@ def install_page(p, sig):
 
   <hr>
   <div class="note">
-    <strong>Images must stay online.</strong> The photo and logo are loaded from
-    <code>{BASE}/assets/img/signature/</code>. They need to remain reachable at that address, so publish the site before
-    sending on behalf of the Foundation. Some recipients block remote images by default and will see the text only
-    &mdash; which is why every detail above is also written as text, not baked into a picture.
+    <strong>The photo travels with the signature.</strong> The images above are embedded directly in this page, so they
+    render whether or not the website is live. When you paste into Gmail it re-uploads them to Google&rsquo;s servers;
+    Outlook and Apple Mail attach them to the message. Either way the photo reaches your recipients without depending on
+    <code>{BASE}</code> being up.<br><br>
+    Some recipients block images by default and will see text only &mdash; which is why every detail above is written as
+    real text rather than baked into a picture.
   </div>
 </div>
 
@@ -288,16 +306,22 @@ document.getElementById('copy').addEventListener('click', function () {{
 def main():
     os.makedirs(OUT, exist_ok=True)
     for p in PEOPLE:
-        sig = signature_html(p)
+        sig_hosted = signature_html(p, embed=False)
+        sig_embedded = signature_html(p, embed=True)
+        # The install page uses embedded images so the photo always renders.
         with open(os.path.join(OUT, f"{p['slug']}.html"), "w", encoding="utf-8") as fh:
-            fh.write(install_page(p, sig))
+            fh.write(install_page(p, sig_embedded))
+        with open(os.path.join(OUT, f"{p['slug']}-block-embedded.html"), "w", encoding="utf-8") as fh:
+            fh.write(sig_embedded + "\n")
+        sig = sig_hosted
         with open(os.path.join(OUT, f"{p['slug']}.txt"), "w", encoding="utf-8") as fh:
             fh.write(signature_text(p))
         with open(os.path.join(OUT, f"{p['slug']}-block.html"), "w", encoding="utf-8") as fh:
             fh.write(sig + "\n")
-        print(f"  signature/{p['slug']}.html        install page")
-        print(f"  signature/{p['slug']}-block.html  signature markup only")
-        print(f"  signature/{p['slug']}.txt         plain text")
+        print(f"  signature/{p['slug']}.html                 install page (images embedded)")
+        print(f"  signature/{p['slug']}-block-embedded.html  markup, images embedded")
+        print(f"  signature/{p['slug']}-block.html           markup, images hosted")
+        print(f"  signature/{p['slug']}.txt                  plain text")
     print(f"\nImages must be reachable at {BASE}/assets/img/signature/")
 
 

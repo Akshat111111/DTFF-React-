@@ -101,6 +101,31 @@ drive the badge shown against each record.
 
 ---
 
+## Email signatures
+
+`python3 _src/signature.py` regenerates them into `website/signature/`. Adding a colleague is one
+entry in `PEOPLE`; a domain change is the single `BASE` constant.
+
+| Output | Use |
+| --- | --- |
+| `<slug>.html` | Install page — open it, click **Copy signature**, follow the per-client steps |
+| `<slug>-block-embedded.html` | Markup with images embedded as base64 |
+| `<slug>-block.html` | Markup with images loaded from the website |
+| `<slug>.txt` | Plain-text fallback |
+| `export/*.png` | Flat renders for decks, PDFs and letterheads |
+
+The install page embeds the photo and logo as base64, so it renders before the site is live. Pasting
+the rendered signature is the intended install path: Gmail re-uploads the images to its own servers
+and Outlook and Apple Mail attach them to the message, so the photo reaches recipients without
+depending on the website being up. Use `-block.html` instead only if you specifically want the images
+served from the site.
+
+Built as nested tables with inline styles and web-safe fonts, because Outlook for Windows drops
+flexbox, grid, gradients and web fonts. Every detail is real text rather than baked into an image, so
+recipients who block remote images still get the name, title, address and phone number.
+
+---
+
 ## Design system
 
 Colours are sampled from the Foundation wordmark:
