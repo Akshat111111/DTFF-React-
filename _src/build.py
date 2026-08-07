@@ -194,6 +194,9 @@ def support_files():
           f"Preferred-Languages: en, fr\n"
           f"Canonical: {SITE}/.well-known/security.txt\n")
 
+    # GitHub Pages reads the custom domain from this file in the published root.
+    write("CNAME", SITE.replace("https://", "") + "\n")
+
     write("site.webmanifest", """{
   "name": "Digital Trust Futures Foundation",
   "short_name": "DTFF",
