@@ -11,8 +11,8 @@ export default function Home() {
   return (
     <>
       <SeoHead
-        title="Digital Trust Futures Foundation — Safe infrastructure. Trusted technology. Inclusive digital futures."
-        description="An independent, non-profit public-benefit organisation strengthening the safety, security, inclusion and trustworthiness of digital public infrastructure, digital public goods, open-source technology and AI-enabled public services across Africa and the Global South."
+        title="Digital Trust Futures Foundation — Protecting people, their rights and the digital systems they depend on."
+        description="An independent, non-profit public-benefit organisation protecting people, their rights and the institutions that serve them as digital public infrastructure, open-source technology and AI-enabled public services scale across Africa and the Global South."
         canonical="index.html"
       />
 
@@ -23,31 +23,35 @@ export default function Home() {
         <div className="hero-grain" aria-hidden={true} />
         <div className="container">
           <div className="hero-inner">
-            <p className="eyebrow">Independent · Non-profit · Public interest</p>
+            <p className="eyebrow">Independent · Non-profit · Rights-respecting · Public interest</p>
             <h1>Digital public infrastructure is only as good as the <span className="mark">protection</span> around it.</h1>
             <p className="hero-lede">
               Digital Trust Futures Foundation is an independent, non-profit public-benefit organisation
-              strengthening the safety, security, inclusion and trustworthiness of digital public infrastructure,
-              digital public goods, open-source technology and AI-enabled public services — with a focus on
-              Africa and the wider Global South.
+              protecting people, their rights and the institutions that serve them as digital public
+              infrastructure, open-source technology and AI-enabled public services scale across
+              Africa and the Global South.
             </p>
             <div className="hero-actions">
               <Link className="btn btn--accent btn--lg" to="/get-involved#partner">Partner with us<ArrowIcon /></Link>
               <Link className="btn btn--outline-light btn--lg" to="/what-we-do">Explore our work<ArrowIcon /></Link>
             </div>
           </div>
-          <div className="hero-triad">
+          <div className="hero-triad hero-triad--4">
             <div className="triad-item">
               <p className="triad-key"><span className="pill-dot" />Security</p>
-              <p>Protects the system. Infrastructure withstands intentional harm, fraud, insider abuse and adversarial pressure.</p>
+              <p>Protect the system. Infrastructure withstands attack, fraud and abuse.</p>
             </div>
             <div className="triad-item">
-              <p className="triad-key"><span className="pill-dot" />Safety</p>
-              <p>Protects the citizen. People are shielded from exclusion, service failure, data misuse and opaque decisions.</p>
+              <p className="triad-key"><span className="pill-dot pill-dot--orange" />Safety</p>
+              <p>Protect the person. People are protected from digital harm, exploitation and exclusion.</p>
+            </div>
+            <div className="triad-item triad-item--rights">
+              <p className="triad-key"><span className="pill-dot pill-dot--teal" />Rights</p>
+              <p>Protect dignity and agency. Privacy, equality, participation, due process and remedy are built into digital transformation.</p>
             </div>
             <div className="triad-item">
               <p className="triad-key"><span className="pill-dot" />Trust</p>
-              <p>Sustains adoption. Digital services become meaningful, sustained access rather than a fragile registration count.</p>
+              <p>Sustain inclusion. People can use digital services with confidence because safeguards are visible and accountability exists.</p>
             </div>
           </div>
         </div>
@@ -65,11 +69,15 @@ export default function Home() {
             <div className="flow" data-reveal="">
               <p className="lede pretty">Identity systems, payment rails, data-exchange platforms and social protection systems have
                 become the rails through which citizens prove who they are, receive money, access benefits, consent to data
-                sharing and participate in the digital economy. The safeguards required to protect them have not kept pace.</p>
+                sharing and participate in the digital economy. The safeguards — security, safety, rights and effective remedy — have not kept pace.</p>
               <p className="text-muted">The Foundation is the independent, non-commercial digital trust partner for governments,
-                digital public goods and civil society — bringing evidence-based cybersecurity, safety and AI-governance
-                assurance to public-interest digital infrastructure, and releasing its tools, research and frameworks as
-                reusable public goods.</p>
+                digital public goods and civil society — bringing cybersecurity, safety, human-rights and trust assurance to
+                public-interest digital infrastructure, and releasing its tools, research and frameworks as reusable public goods.</p>
+              <p className="text-muted">Cybersecurity tells us whether a system can be compromised. Human-rights assurance asks what happens to people even when the system is functioning exactly as designed. DTFF does both.</p>
+              <div className="mt-6 cluster">
+                <Link className="btn btn--primary" to="/human-rights">Human rights & digital trust<ArrowIcon /></Link>
+                <Link className="btn btn--ghost" to="/about">About the Foundation<ArrowIcon /></Link>
+              </div>
             </div>
           </div>
         </div>
@@ -84,7 +92,8 @@ export default function Home() {
             <p style={{ maxWidth: '64ch', margin: '0 auto' }}>
               From infrastructure assurance to citizen safety, each division addresses a distinct layer of the
               digital trust problem — and together they cover the full stack from national DPI through to the
-              open-source components underneath it.
+              open-source components underneath it, with human rights, civil society and children's rights as
+              cross-cutting lenses throughout.
             </p>
           </div>
           <div className="grid grid-3 mt-8" data-reveal-stagger="">
@@ -125,8 +134,7 @@ export default function Home() {
               <p className="text-muted">The open-source components underneath those systems are frequently maintained by small,
                 under-resourced teams without dedicated security funding. A single weak dependency shared by many national
                 systems can create compounding, cross-border risk.</p>
-              <p className="text-muted">Commercial assurance is available, but at a price point and with a conflict-of-interest
-                structure that makes it unsuitable for public-interest work. The Foundation was created to close that gap.</p>
+              <p className="text-muted">And even where systems are technically secure, they can still cause harm — through discriminatory exclusion, opaque automated decisions, loss of dignity or agency, failure of effective remedy, and particular risks to children and vulnerable communities.</p>
               <div className="mt-6 cluster">
                 <Link className="btn btn--primary" to="/about">About the Foundation<ArrowIcon /></Link>
                 <Link className="btn btn--ghost" to="/programmes">See the programmes<ArrowIcon /></Link>
@@ -177,7 +185,7 @@ export default function Home() {
             <article className="prog-card prog-card--2">
               <span className="prog-index">2</span>
               <h3>DPI Security Assurance and Resilience Lab</h3>
-              <p>Independent public-interest assessment of identity, payment, data exchange, DPG and AI risks.</p>
+              <p>Independent public-interest assessment of identity, payment, data exchange, DPG and AI risks — including human-rights and child-rights dimensions.</p>
               <Link className="link-arrow mt-4" to="/programmes#assurance-lab">Programme detail<ArrowIcon /></Link>
             </article>
             <article className="prog-card prog-card--3">
@@ -189,6 +197,65 @@ export default function Home() {
           </div>
           <div className="mt-8" data-reveal="">
             <Link className="btn btn--ghost" to="/programmes">Full programme detail<ArrowIcon /></Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Civil Society & HRDs spotlight ── */}
+      <section className="section section--alt">
+        <div className="container">
+          <div className="split split--even" style={{ alignItems: 'center' }}>
+            <div className="flow" data-reveal="">
+              <p className="eyebrow">Civil society & human rights defenders</p>
+              <h2 className="balance">Civil society is a beneficiary, evidence partner and accountability participant — not a footnote</h2>
+              <p className="text-muted">Human rights defenders, journalists, civic-space organisations and nonprofits whose work can expose them to surveillance, identity-linked tracking, account compromise and retaliation require a higher standard of digital protection.</p>
+              <p className="text-muted">DTFF's Civil Society Digital Harm Evidence Network surfaces the anonymised harm patterns that technical assessments miss — and feeds those patterns back into the Observatory and assurance methodology.</p>
+              <div className="mt-6 cluster">
+                <Link className="btn btn--primary" to="/civil-society">Civil society & defenders<ArrowIcon /></Link>
+                <Link className="btn btn--ghost" to="/divisions/cyber-safety-centre">Cyber & Safety Centre<ArrowIcon /></Link>
+              </div>
+            </div>
+            <div className="flow" data-reveal="">
+              <div className="callout">
+                <h3>Three formal civil-society roles</h3>
+                <ul className="dot-list mt-4">
+                  <li><strong>Beneficiary</strong> — Cyber helpdesk, threat modelling, secure communications, incident referral and organisational resilience.</li>
+                  <li><strong>Evidence partner</strong> — Local partners surface anonymised harm patterns that commercial assessments miss.</li>
+                  <li><strong>Accountability participant</strong> — Civil society shapes DPI consultations, toolkit testing and methodology review.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Children & Young People spotlight ── */}
+      <section className="section">
+        <div className="container">
+          <div className="split split--even" style={{ alignItems: 'center' }}>
+            <div className="flow" data-reveal="">
+              <div className="callout callout--teal">
+                <h3>The D-CRIA principle</h3>
+                <p className="mt-3" style={{ fontStyle: 'italic', fontSize: '1.1em' }}>"A system that is safe enough for an adult is not automatically safe enough for a child."</p>
+                <ul className="dot-list dot-list--teal mt-4">
+                  <li>Child Rights Impact Assessment for DPI</li>
+                  <li>Child-Safe Digital Identity and Credentials</li>
+                  <li>AI and Automated Decisions Affecting Children</li>
+                  <li>Child-Friendly Recourse and Reporting</li>
+                  <li>Youth participation — not just protection</li>
+                </ul>
+              </div>
+            </div>
+            <div className="flow" data-reveal="">
+              <p className="eyebrow">Children & young people</p>
+              <h2 className="balance">Children interact with every dimension of digital public infrastructure — and deserve explicit protection in each</h2>
+              <p className="text-muted">Children and young people are a cross-cutting protected constituency across all five DTFF programme divisions — from child identity and social protection systems through to education technology, online safety and youth participation in policy.</p>
+              <p className="text-muted">DTFF's Children and Young People Digital Trust & Safety Initiative ensures that DPI, AI-enabled public services and digital technologies affecting children protect their best interests, safety, privacy, dignity and access to remedy.</p>
+              <div className="mt-6 cluster">
+                <Link className="btn btn--primary" to="/children-young-people">Children & young people<ArrowIcon /></Link>
+                <Link className="btn btn--ghost" to="/programmes">See all programmes<ArrowIcon /></Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -205,7 +272,7 @@ export default function Home() {
               <h2 className="balance">Securing the shared infrastructure that many governments quietly depend on</h2>
               <p className="text-muted">The Foundation supports digital public goods — the open-source components underneath national
                 identity, payment, health and data systems — with security baseline reviews, SBOM support, coordinated
-                vulnerability disclosure and long-term sustainability planning.</p>
+                vulnerability disclosure and long-term sustainability planning. Every review includes privacy, children's data and rights risks alongside technical security.</p>
               <div className="mt-6">
                 <Link className="btn btn--ghost" to="/open-source">Open-source work<ArrowIcon /></Link>
               </div>
@@ -215,7 +282,7 @@ export default function Home() {
       </section>
 
       <CtaBand
-        title="Independent assurance is only useful if it is funded to stay independent."
+        title="Protect people and their rights. Validate the infrastructure. Strengthen civil society. Build a trusted digital ecosystem."
         text="The Foundation welcomes partnership, funding and programme enquiries from governments, digital public goods initiatives, donors and social investment partners."
       />
     </>

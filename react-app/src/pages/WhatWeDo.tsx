@@ -55,14 +55,15 @@ export default function WhatWeDo() {
           <div className="split">
             <div data-reveal="">
               <p className="eyebrow eyebrow--teal">The protection stack</p>
-              <h2 className="balance">How the divisions work together</h2>
+              <h2 className="balance">How the divisions work together — and how rights, civil society and children run through all of them</h2>
             </div>
             <div className="flow" data-reveal="">
               <p className="pretty">The five divisions are not independent silos. Citizen safety work reveals harm patterns that feed the assurance lab's research questions. Assurance findings shape the policy briefs the evidence centre publishes. Skills Academy courses train the practitioners who carry lab and evidence-centre methods into government. The Cyber and Digital Safety Centre provides practical support to the civil society organisations that report on citizen harm.</p>
-              <p className="pretty">The result is a protection stack that moves from infrastructure to citizen, from research to practice, and from national systems to the open-source components underneath them.</p>
+              <p className="pretty">Human rights, civil society and children's rights run across all five divisions as cross-cutting operating lenses — not as separate programmes. DPI assessments ask not only whether a system is secure, but whether it protects dignity, allows effective remedy, and is safe for children and vulnerable communities. Civil society is a beneficiary, evidence partner and accountability participant in the work of every division. And children are a protected constituency whose interests are assessed wherever digital public systems affect them.</p>
+              <p className="pretty">The result is a protection stack that moves from infrastructure to citizen, from research to practice, and from national systems to the open-source components underneath them — with rights, civil society resilience and children's safety embedded throughout.</p>
               <div className="mt-6 cluster">
                 <Link className="btn btn--light" to="/programmes">See the launch programmes<ArrowIcon /></Link>
-                <Link className="btn btn--outline-light" to="/about">About the Foundation<ArrowIcon /></Link>
+                <Link className="btn btn--outline-light" to="/human-rights">Human rights & digital trust<ArrowIcon /></Link>
               </div>
             </div>
           </div>

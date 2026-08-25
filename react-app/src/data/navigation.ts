@@ -18,6 +18,7 @@ export const NAV: NavItem[] = [
     key: 'about',
     children: [
       { label: 'Who we are', href: '/about', desc: 'Mandate, vision, mission and values' },
+      { label: 'Human Rights & Digital Trust', href: '/human-rights', desc: 'Rights-respecting assurance — what it means and how we test it' },
       { label: 'Governance & board', href: '/governance', desc: 'Independent oversight and executive office' },
       { label: 'Relationship with Nucleus Systems', href: '/governance#nucleus', desc: 'How independence is protected' },
       { label: 'Transparency & reporting', href: '/governance#transparency', desc: 'Policies, MEL and accountability' },
@@ -34,6 +35,7 @@ export const NAV: NavItem[] = [
       { label: 'Digital Trust Policy and Evidence Centre', href: '/divisions/policy-evidence-centre', desc: 'Independent research and policy evidence' },
       { label: 'Digital Trust Skills and Implementation Academy', href: '/divisions/skills-academy', desc: 'Practical capacity building' },
       { label: 'Public-Interest Cyber and Digital Safety Centre', href: '/divisions/cyber-safety-centre', desc: 'Cyber support for civil society' },
+      { label: 'Children & Young People', href: '/children-young-people', desc: 'Cross-foundation digital trust initiative for children' },
     ],
   },
   {
@@ -65,6 +67,7 @@ export const NAV: NavItem[] = [
       { label: 'Partner with us', href: '/get-involved#partner', desc: 'Governments, funders and DPG maintainers' },
       { label: 'Support our work', href: '/support-our-work', desc: 'The two-year launch investment package' },
       { label: 'Apply for support', href: '/get-involved#support', desc: 'Civil society and DPG helpdesk' },
+      { label: 'Civil Society & Human Rights Defenders', href: '/civil-society', desc: 'High-risk support, threat modelling and the evidence network' },
       { label: 'Careers & fellowships', href: '/get-involved#careers', desc: 'Join the Foundation' },
     ],
   },
@@ -81,6 +84,7 @@ export const FOOTER_COLS = [
     heading: 'Foundation',
     links: [
       { label: 'Who we are', href: '/about' },
+      { label: 'Human Rights & Digital Trust', href: '/human-rights' },
       { label: 'Governance & board', href: '/governance' },
       { label: 'Nucleus Systems relationship', href: '/governance#nucleus' },
       { label: 'Transparency & reporting', href: '/governance#transparency' },
@@ -95,6 +99,7 @@ export const FOOTER_COLS = [
       { label: 'Policy & Evidence Centre', href: '/divisions/policy-evidence-centre' },
       { label: 'Skills Academy', href: '/divisions/skills-academy' },
       { label: 'Cyber & Digital Safety Centre', href: '/divisions/cyber-safety-centre' },
+      { label: 'Children & Young People', href: '/children-young-people' },
     ],
   },
   {
@@ -112,6 +117,7 @@ export const FOOTER_COLS = [
     links: [
       { label: 'Partner with us', href: '/get-involved#partner' },
       { label: 'Support our work', href: '/support-our-work' },
+      { label: 'Civil Society & Defenders', href: '/civil-society' },
       { label: 'Apply for support', href: '/get-involved#support' },
       { label: 'Careers & fellowships', href: '/get-involved#careers' },
       { label: 'Contact', href: '/contact' },

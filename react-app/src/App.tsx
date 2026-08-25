@@ -19,6 +19,9 @@ import Security from './pages/Security';
 import Credits from './pages/Credits';
 import ThankYou from './pages/ThankYou';
 import NotFound from './pages/NotFound';
+import HumanRights from './pages/HumanRights';
+import CivilSociety from './pages/CivilSociety';
+import ChildrenYoungPeople from './pages/ChildrenYoungPeople';
 import { Privacy, Cookies, Terms, Safeguarding } from './pages/legal/LegalPages';
 
 const router = createBrowserRouter([
@@ -40,6 +43,9 @@ const router = createBrowserRouter([
       { path: 'contact', element: <Contact /> },
       { path: 'security', element: <Security /> },
       { path: 'credits', element: <Credits /> },
+      { path: 'human-rights', element: <HumanRights /> },
+      { path: 'civil-society', element: <CivilSociety /> },
+      { path: 'children-young-people', element: <ChildrenYoungPeople /> },
       { path: 'thank-you', element: <ThankYou /> },
       { path: 'legal/privacy', element: <Privacy /> },
       { path: 'legal/cookies', element: <Cookies /> },

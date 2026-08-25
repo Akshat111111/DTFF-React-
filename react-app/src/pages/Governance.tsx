@@ -8,9 +8,9 @@ const BOARD = [
   ['Digital public infrastructure expert', 'Brings national DPI design, delivery and programme experience.'],
   ['Open-source governance expert', 'Brings project stewardship, licensing and community governance experience.'],
   ['Financial inclusion or payment expert', 'Brings payment systems, inclusion and consumer-protection experience.'],
-  ['Privacy or digital-rights expert', 'Brings data protection, surveillance risk and rights-based scrutiny.'],
+  ['Human Rights, Child Protection and Digital Rights Expert', 'Brings human-rights law, children\'s rights, data protection, surveillance risk and rights-based scrutiny — ensuring rights accountability at Board level.'],
   ['University or research representative', 'Brings methodological rigour and peer-review discipline.'],
-  ['African civil-society representative', 'Brings community reach, lived experience and accountability to affected people.'],
+  ['African civil-society representative', 'Brings community reach, lived experience and accountability to affected people. A permanent competency requirement.'],
   ['Cybersecurity or technology expert', 'Brings adversarial, resilience and assurance depth.'],
   ['One Nucleus Systems nominee', 'A single seat — the Board is explicitly not controlled by Nucleus Systems.'],
 ];
@@ -23,7 +23,7 @@ const EXEC = [
   ['Director of Partnerships and Funding', 'Funder relationships, government counterparts and overall site strategy.'],
   ['Finance and Operations Manager', 'Financial controls, grant administration and operations.'],
   ['Monitoring, Evaluation and Learning Lead', 'The MEL framework and reporting against the theory of change.'],
-  ['Safeguarding and Ethics Officer', 'Safeguarding, ethics review and handling of citizen-harm evidence.'],
+  ['Head of Human Rights, Safeguarding and Ethics', 'Human rights, child protection, safeguarding, ethics review and handling of citizen-harm evidence. Reports to the Executive Director with a direct escalation path to the Board for material concerns.'],
 ];
 
 const NUCLEUS_MAY = ['Founding technical expertise', 'Seconded specialists', 'Access to selected methodologies', 'Mentorship and technical review', 'Training support', 'Donated professional time', 'Shared research participation', 'Specialist implementation services under transparent contracts'];
@@ -33,10 +33,31 @@ const AGREEMENTS = ['Founding support agreement', 'Shared-services agreement', '
 const MEL = [
   ['Citizen protection', 'Users reached; community trainers equipped; reported improvements in scam awareness, reporting knowledge and safe digital payment practices.'],
   ['Infrastructure assurance', 'Assurance tools produced; systems or components reviewed; risk themes identified; remediation guidance issued.'],
+  ['Human-rights assurance', 'Number of assessments using rights domains; remediation actions adopted; evidence of improved due-process or privacy controls.'],
+  ['Child protection', 'Child-rights assessments completed; safeguarding controls adopted; child-friendly materials produced; youth participation mechanisms used safely.'],
+  ['Civil-society protection', 'Organisations supported; referrals completed; threat models used; anonymised harm patterns incorporated into policy or assurance work.'],
+  ['Effective remedy', 'Systems assessed for recourse; complaint pathways improved; correction or appeal processes documented.'],
   ['Ecosystem coordination', 'Number and diversity of network participants; roundtables held; playbooks published; cross-sector referrals initiated.'],
-  ['Public-good outputs', 'Toolkits, frameworks, checklists, briefs and training materials published for reuse.'],
+  ['Public-good outputs', 'Toolkits, frameworks, checklists, briefs and training materials published for reuse — including rights and child-rights tools.'],
   ['Policy influence', 'Evidence taken into funder, government, DPI, cyber or civil-society planning processes.'],
-  ['Organisational maturity', 'Board functioning, grant reporting, safeguarding, financial controls and partnership agreements in place.'],
+  ['Organisational maturity', 'Board functioning, grant reporting, safeguarding, financial controls, partner due diligence and partnership agreements in place.'],
+];
+
+const DUE_DILIGENCE = [
+  ['Human rights', 'No material practice inconsistent with DTFF\'s public-benefit and rights-respecting mandate.'],
+  ['Safeguarding', 'Appropriate safeguarding policies and escalation channels for affected groups.'],
+  ['Privacy and data minimisation', 'Necessity, proportionality, security and purpose limitation.'],
+  ['Responsible AI', 'Transparency, human review, non-discrimination and recourse where automated decisions affect people.'],
+  ['Research ethics', 'Consent, minimisation, safe participation and protection of vulnerable participants.'],
+  ['Responsible disclosure', 'Commitment to coordinated vulnerability handling and non-retaliation.'],
+  ['Child protection', 'Specific controls where programmes collect, process or influence children\'s data or services.'],
+  ['Complaints and remedy', 'Accessible mechanisms for raising concerns and correcting harm.'],
+];
+
+const ADVISORY_PANEL = [
+  'Human rights law', 'Children\'s rights', 'Civil society', 'Online safety',
+  'Disability', 'Gender', 'Migration and refugee issues', 'Child safeguarding',
+  'Digital rights', 'Privacy',
 ];
 
 const RISKS = [
@@ -53,8 +74,8 @@ const OPERATING = [
   ['Governance', 'Independent Board oversight, conflict-of-interest controls, safeguarding and ethics expectations, and transparent decision-making.'],
   ['Programme management', 'Each launch programme has a charter, delivery plan, roles, outputs, timeline, risk register and reporting rhythm.'],
   ['Quality assurance', 'Technical outputs reviewed by subject-matter experts and, where appropriate, peer reviewers or advisory contributors.'],
-  ['Safeguarding and ethics', 'Citizen-harm evidence handled carefully, with privacy, consent, minimisation and referral protocols.'],
-  ['Partnerships', 'Written agreements with governments, civil society, DPG projects, researchers and funders to clarify roles and expectations.'],
+  ['Human rights and safeguarding', 'Rights-based assessment, child protection standard, mandatory partner due diligence and direct escalation path from the Head of Human Rights, Safeguarding and Ethics to the Board for material concerns.'],
+  ['Partnerships', 'Written agreements with governments, civil society, DPG projects, researchers and funders — including minimum human-rights, safeguarding, research ethics and anti-retaliation clauses.'],
   ['Open public goods', 'Tools and frameworks released openly wherever safe and appropriate, with sensitive security details handled responsibly.'],
 ];
 
@@ -74,9 +95,9 @@ export default function Governance() {
         breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'About', href: '/about' }, { label: 'Governance' }]}
         extra={
           <nav className="section-nav" data-section-nav="" aria-label="On this page">
-            <a href="#board">Board</a><a href="#executive">Executive office</a><a href="#operating">Operating model</a>
+            <a href="#board">Board</a><a href="#advisory">Advisory panel</a><a href="#executive">Executive office</a><a href="#operating">Operating model</a>
             <a href="#nucleus">Nucleus Systems</a><a href="#ip">Intellectual property</a>
-            <a href="#transparency">Transparency</a><a href="#risk">Risk management</a>
+            <a href="#due-diligence">Due diligence</a><a href="#transparency">Transparency</a><a href="#risk">Risk management</a>
           </nav>
         }
       />
@@ -96,6 +117,33 @@ export default function Governance() {
             </table>
           </div>
           <p className="note mt-6" data-reveal=""><strong>Appointments in progress.</strong> Named directors will be published on this page as each appointment is confirmed. Until then, the Board is described by role rather than by individual, so that composition and independence can be assessed on the record.</p>
+        </div>
+      </section>
+
+      <section className="section section--alt" id="advisory">
+        <div className="container">
+          <div className="split split--sticky">
+            <div data-reveal="">
+              <p className="eyebrow">Advisory governance</p>
+              <h2 className="balance">Human Rights, Child Safety and Safeguarding Advisory Panel</h2>
+              <p className="lede mt-4">A specialist advisory panel that provides expert review without over-expanding the governing Board. The panel reviews especially sensitive programmes, methodologies and high-risk publication decisions.</p>
+            </div>
+            <div data-reveal="">
+              <p className="text-muted">Panel competencies span:</p>
+              <ul className="agreement-list mt-4">
+                {ADVISORY_PANEL.map((i) => <li key={i}><span className="pill pill--outline">{i}</span></li>)}
+              </ul>
+              <div className="callout mt-6">
+                <h3>Role of the panel</h3>
+                <ul className="dot-list mt-3">
+                  <li>Review especially sensitive programmes and methodologies.</li>
+                  <li>Advise on high-risk publication decisions involving human rights, child safety or civil-society data.</li>
+                  <li>Provide specialist scrutiny without requiring Board seats for every competency area.</li>
+                  <li>Report to the Board through the Head of Human Rights, Safeguarding and Ethics.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -178,6 +226,23 @@ export default function Governance() {
               <h3 className="card-title">Shared or adapted materials</h3>
               <p>Selected Nucleus Systems frameworks may be used under a documented licence covering non-commercial and research use, public-interest implementation rights, attribution requirements, restrictions on commercial resale, and rules for derivative open-source outputs.</p>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="section" id="due-diligence">
+        <div className="container">
+          <div className="section-head" data-reveal="">
+            <p className="eyebrow">Partner due diligence</p>
+            <h2 className="balance">Minimum standards for every government, technology provider, research institution and implementing partner</h2>
+            <p>Rights and child protection are part of DTFF's partner due diligence — not optional additions. Every partner is reviewed against these standards before collaboration begins.</p>
+          </div>
+          <div className="table-wrap" data-reveal="">
+            <table>
+              <caption>Partner due diligence minimum expectations</caption>
+              <thead><tr><th scope="col">Due diligence area</th><th scope="col">Minimum expectation</th></tr></thead>
+              <tbody>{DUE_DILIGENCE.map(([a, b]) => <tr key={a}><td><strong>{a}</strong></td><td>{b}</td></tr>)}</tbody>
+            </table>
           </div>
         </div>
       </section>
